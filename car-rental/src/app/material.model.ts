@@ -11,6 +11,12 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+// import { NavbarModule, WavesModule, ButtonsModule } from 'ng-uikit-pro-standard';
+import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bootstrap-md'
+
 
 
 @NgModule({
@@ -25,7 +31,14 @@ import {MatMenuModule} from '@angular/material/menu';
         MatChipsModule,
         MatDatepickerModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        NavbarModule,
+        WavesModule,
+        ButtonsModule,
+        IconsModule
     ],
     exports : [
         MatAutocompleteModule,
@@ -38,7 +51,14 @@ import {MatMenuModule} from '@angular/material/menu';
         MatChipsModule,
         MatDatepickerModule,
         MatDialogModule,
-        MatMenuModule
+        MatMenuModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        NavbarModule,
+        WavesModule,
+        ButtonsModule,
+        IconsModule
     ]
 
 })

@@ -1,0 +1,30 @@
+<div #stickyMenu
+[class.sticky] = "sticky">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <a class="navbar-brand" href="#">
+            <img src="https://www.flaticon.com/svg/vstatic/svg/2555/2555013.svg?token=exp=1618605782~hmac=6b7cca3db10b6bbe0b437e4f784b5c74" width="30" height="30" alt="">
+          </a>
+        <button class="navbar-toggler" type="button" appScroll>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['cars']" routerLinkActive="active">Cars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['rentals']" routerLinkActive="active">Rentals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " [routerLink]="['contact']" routerLinkActive="active">Contact as</a>
+            </li>
+          </ul>
+        </div>
+      </nav>  
+</div>
+
+ 
