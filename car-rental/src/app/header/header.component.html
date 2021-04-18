@@ -13,14 +13,18 @@
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" [routerLink]="['categories']" routerLinkActive="active">Categories</a>         
+            </li> -->
+            <li class="nav-item dropdown" >
+              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button" >Categories</a>
+              <ul class="dropdown-menu">
+                  <li><a style="cursor: pointer;" class="dropdown-item" href="#">save Data</a></li>
+                  <li><a style="cursor: pointer;" class="dropdown-item" href="#">Fetch Data</a></li>
+              </ul>
+          </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['cars']" routerLinkActive="active">Cars</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['rentals']" routerLinkActive="active">Rentals</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " [routerLink]="['contact']" routerLinkActive="active">Contact as</a>
+              <a class="nav-link" [routerLink]="['about_as']" routerLinkActive="active">About as</a>
             </li>
           </ul>
         </div>

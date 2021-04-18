@@ -1,6 +1,7 @@
 import { Rental } from "./rental.model";
 
 export class User {
+    admin : boolean;
     constructor(
         public first_name :string,
         public last_name : string,

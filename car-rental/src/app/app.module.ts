@@ -8,20 +8,26 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { ScrollDirective } from './header/scroll.directive';
-import { CarsComponent } from './cars/cars.component';
-import { RentalsComponent } from './rentals/rentals.component';
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
+import {CategoriesComponent} from './categories/categories.component';
+import { AboutAsComponent} from './about-as/about-as.component';
+import {ProfileComponent} from './profile/profile.component';
+import {SigninComponent} from './signin/signin.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ScrollDirective,
-    CarsComponent,
-    RentalsComponent,
     HomeComponent,
-    ContactComponent,
+    CategoriesComponent,
+    AboutAsComponent,
+    ProfileComponent,
+    SigninComponent,
+    SignUpComponent
+
+
   ],
   imports: [
     BrowserModule,
