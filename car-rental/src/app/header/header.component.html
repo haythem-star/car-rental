@@ -17,7 +17,9 @@
               <a class="nav-link" [routerLink]="['categories']" routerLinkActive="active">Categories</a>         
             </li> -->
             <li class="nav-item dropdown" >
-              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button" >Categories</a>
+              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button"
+              [routerLink]="['categories']" routerLinkActive="active"
+               >Categories</a>
               <ul class="dropdown-menu">
                   <li><a style="cursor: pointer;" class="dropdown-item" href="#">save Data</a></li>
                   <li><a style="cursor: pointer;" class="dropdown-item" href="#">Fetch Data</a></li>

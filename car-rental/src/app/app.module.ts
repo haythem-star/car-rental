@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MaterialsModule} from './material.model'
 
@@ -14,6 +15,10 @@ import { AboutAsComponent} from './about-as/about-as.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
+import { CarListComponent } from './categories/car-list/car-list.component';
+import { CarComponent } from './categories/car/car.component';
+import { PlaceDateComponent } from './categories/place-date/place-date.component';
+import { SidenavComponent } from './categories/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     AboutAsComponent,
     ProfileComponent,
     SigninComponent,
-    SignUpComponent
+    SignUpComponent,
+    CarListComponent,
+    CarComponent,
+    PlaceDateComponent,
+    SidenavComponent
 
 
   ],
@@ -33,7 +42,9 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

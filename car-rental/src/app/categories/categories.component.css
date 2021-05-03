@@ -1,0 +1,10 @@
+mat-drawer
+{
+    width: 250px;
+    padding: 25px;
+}
+
+mat-drawer-content
+{
+    padding: 30px;
+}
