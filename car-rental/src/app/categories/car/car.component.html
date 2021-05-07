@@ -4,26 +4,36 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>JD Power Says</mat-card-title>
-    <mat-card-subtitle>Korean Cars</mat-card-subtitle>
+    <div mat-card-avatar class="example-header-image" 
+    [ngStyle]="{'background-image' : 'url('+mark+')','background-size' : 'cover', 'cursor': 'pointer'}"></div>
+    <mat-card-title>{{car.model}}</mat-card-title>
+    <mat-card-subtitle>{{car.society}}</mat-card-subtitle>
   </mat-card-header>
-  <img class="imgSize" mat-card-image src="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/1:1/w_1500,h_1500,c_limit/Transpo_G70_TA-518126.jpg" 
+  <img class="imgSize" mat-card-image  [src]="car.imgPath"
   alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <div class="main-header__item"><a href="#" style="cursor: pointer;"><img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Aston_Martin_Lagonda_brand_logo.png" alt="location" class="logo"></a></div>
-    <hr>   
+    <h3><img src="../../../assets/images/outline_location_on_black_36dp.png" alt="location">
+      <a href="#"><mark style="color: rgb(25, 102, 202);">{{car.location}}</mark></a>
+    </h3>
+    <hr>  
+    <div *ngIf="details">
+      <p>
+        {{car.description}}
+      </p> 
+      <hr>
+    </div>
     <ul class="main-header__item-list ">
-                <li class="main-header__item"> <img src="../../../assets/images/outline_groups_black_36dp.png" alt="seat"><br><mark><strong>4 seats</strong></mark></li>
-                <li class="main-header__item"> <img src="../../../assets/images/gearbox.png" alt="gearbox"><br><mark><strong>Manual</strong></mark></li>
-                <li class="main-header__item"><img src="../../../assets/images/outline_local_gas_station_black_36dp.png" alt="Gas"><br><mark><strong>20 liters</strong></mark></li>
+                <li class="main-header__item"> <img src="../../../assets/images/outline_groups_black_36dp.png" alt="seat"><br><mark><strong>{{car.seats}} seats</strong></mark></li>
+                <li class="main-header__item"> <img src="../../../assets/images/gearbox.png" alt="gearbox"><br><mark><strong>{{car.gearbox}}</strong></mark></li>
+                <li class="main-header__item"><img src="../../../assets/images/outline_speed_black_36dp.png" alt="speed"><br><mark><strong>{{car.speed}} Km/h</strong></mark></li>
     </ul>
     <hr>
-    <h2><strong style="color: green;">200TND/Month</strong></h2>
+    <h2><strong style="color: green;">{{car.price}}TND/Week</strong></h2>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button style="color: blueviolet;">LIKE</button>
-    <button mat-button style="color: blueviolet;">RENTAL</button>
+    <button mat-button style="color: blueviolet;" matBadge="7" matBadgeColor="accent" >LIKE</button>
+    <button mat-button style="color: blueviolet;" color="primary">RENT</button>
+    <button type="button" class="btn btn-outline-warning" (click)="showDetails()">{{details ? 'less' : 'more'}}</button>
   </mat-card-actions>
 </mat-card>
 <br>

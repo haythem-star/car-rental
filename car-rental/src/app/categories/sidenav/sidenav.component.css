@@ -32,3 +32,32 @@
   .example-panel-blue.mat-select-panel {
     background: rgba(0, 0, 255, 0.5);
   }
+
+
+  mat-slider {
+    width: 200px;
+  }
+
+  #available ~ #all
+  {
+    margin-left: 40px;
+  }
+
+  label
+  {
+    font-weight: bold;
+  }
+
+
+  .content { 
+    height: 200px;
+    position: relative;
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }

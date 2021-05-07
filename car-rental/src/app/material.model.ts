@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -52,7 +53,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatNativeDateModule,
         MatRadioModule,
         MatSelectModule,
-        MatPaginatorModule
+        MatPaginatorModule,
     ],
     exports : [
         MatAutocompleteModule,
@@ -79,7 +80,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatNativeDateModule,
         MatRadioModule,
         MatSelectModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatSliderModule
     ]
 
 })

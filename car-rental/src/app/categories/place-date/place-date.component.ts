@@ -10,7 +10,7 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class PlaceDateComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = ['All Tunisia','Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
   filteredOptions: Observable<string[]>;
 
   campaignOne: FormGroup;

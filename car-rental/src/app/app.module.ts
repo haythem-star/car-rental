@@ -19,6 +19,8 @@ import { CarListComponent } from './categories/car-list/car-list.component';
 import { CarComponent } from './categories/car/car.component';
 import { PlaceDateComponent } from './categories/place-date/place-date.component';
 import { SidenavComponent } from './categories/sidenav/sidenav.component';
+import { AddCarComponent } from './admin/add-car/add-car.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { SidenavComponent } from './categories/sidenav/sidenav.component';
     CarListComponent,
     CarComponent,
     PlaceDateComponent,
-    SidenavComponent
+    SidenavComponent,
+    AddCarComponent
 
 
   ],
@@ -44,7 +47,8 @@ import { SidenavComponent } from './categories/sidenav/sidenav.component';
     BrowserAnimationsModule,
     MaterialsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

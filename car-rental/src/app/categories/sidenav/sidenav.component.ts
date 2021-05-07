@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {ThemePalette} from '@angular/material/core';
 
 export interface Task {
   name: string;
   completed: boolean;
-  color: ThemePalette;
   subtasks?: Task[];
 }
 
@@ -16,17 +14,19 @@ export interface Task {
 })
 export class SidenavComponent implements OnInit {
  formControl : FormControl;
- seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+ gearBox: string[] = ['Manual', 'Automatic'];
+ Seats: string[] = ['2 seats', '4 seats'];
  panelColor = new FormControl('red');
 
  task: Task = {
-  name: 'Indeterminate',
+  name: 'All Marks',
   completed: false,
-  color: 'primary',
   subtasks: [
-    {name: 'Primary', completed: false, color: 'primary'},
-    {name: 'Accent', completed: false, color: 'accent'},
-    {name: 'Warn', completed: false, color: 'warn'}
+    {name: 'BMW', completed: false},
+    {name: 'Tesla', completed: false},
+    {name: 'Ford', completed: false},
+    {name: 'Honda', completed: false},
+    {name: 'Toyota', completed: false}
   ]
 };
 
@@ -50,6 +50,21 @@ setAll(completed: boolean) {
   }
   this.task.subtasks.forEach(t => t.completed = completed);
 }
+
+formatLabel(value: number) {
+  
+  if(value>=1000000)
+  {
+    return Math.round(value / 1000000) + 'M';
+  }
+  if (value >= 1000) {
+    return Math.round(value / 1000) + 'k';
+  }
+
+   
+  return value;
+}
+
 
 ngOnInit()
 {}

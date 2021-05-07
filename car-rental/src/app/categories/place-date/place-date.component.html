@@ -1,12 +1,16 @@
 <div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
     <div class="row">
         <div class="col-lg-7">
             <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <mat-label>Number</mat-label>
+                  <mat-label>City</mat-label>
                   <input type="text"
                          placeholder="Pick one"
-                         aria-label="Number"
+                         aria-label="City"
                          matInput
                          [formControl]="myControl"
                          [matAutocomplete]="auto">
@@ -20,7 +24,7 @@
         </div>
         <div class="col-lg-5">
             <mat-form-field class="example-form-field" appearance="fill">
-                <mat-label>First campaign</mat-label>
+                <mat-label>rental period</mat-label>
                 <mat-date-range-input
                   [formGroup]="campaignOne"
                   [rangePicker]="campaignOnePicker"
