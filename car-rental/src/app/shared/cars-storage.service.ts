@@ -30,7 +30,12 @@ export class CarsStorageService {
       {
         return cars.map(car => 
           {
-            return {...car,booking : car.booking ? car.booking : []};
+            const updatecar = {...car,booking : car.booking ? car.booking : []}
+            if (!car.likes.clients)
+            {
+              updatecar.likes={...car.likes,clients : []};
+            }
+            return updatecar;
           })
       }))
     .subscribe(cars =>
