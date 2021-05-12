@@ -14,6 +14,20 @@ import { AboutAsComponent} from './about-as/about-as.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
+import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
+import { SettingProfileComponent } from './setting-profile/setting-profile.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NavProfileComponent } from './nav-profile/nav-profile.component';
+import { MenuProfileComponent } from './menu-profile/menu-profile.component';
+import { GeneralProfileComponent } from './general-profile/general-profile.component' ;
+
+const appRoutes: Routes = [
+  { path: 'profile', component: ProfileComponent },
+  { path: 'generale', component: GeneralProfileComponent },
+  { path: 'settings', component: SettingProfileComponent },
+  { path: 'notifications', component: NotificationProfileComponent },
+  { path: '', component: AppComponent }
+];
 
 @NgModule({
   declarations: [
@@ -25,7 +39,13 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     AboutAsComponent,
     ProfileComponent,
     SigninComponent,
-    SignUpComponent
+    SignUpComponent,
+    NotificationProfileComponent,
+    SettingProfileComponent,
+    NavProfileComponent,
+    MenuProfileComponent,
+    GeneralProfileComponent,
+    
 
 
   ],
@@ -33,7 +53,8 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
