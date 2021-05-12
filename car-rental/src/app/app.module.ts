@@ -21,6 +21,7 @@ import { PlaceDateComponent } from './categories/place-date/place-date.component
 import { SidenavComponent } from './categories/sidenav/sidenav.component';
 import { AddCarComponent } from './admin/add-car/add-car.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RentalFormComponent } from './rental-form/rental-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     CarComponent,
     PlaceDateComponent,
     SidenavComponent,
-    AddCarComponent
+    AddCarComponent,
+    RentalFormComponent
 
 
   ],

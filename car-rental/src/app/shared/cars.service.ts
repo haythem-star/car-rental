@@ -8,19 +8,7 @@ import { Car } from './Car.model';
 export class CarsService {
   carsChanged = new Subject<Car[]>();
 
-  Cars : Car[] = [new Car(
-    'Bmw i8',
-    '167',
-    'https://i.ytimg.com/vi/fjsy309KJ1Q/maxresdefault.jpg',
-    'the new model of bmw 2020',
-    'BMW',
-    'Sxit',
-    'Automatic',
-    300,
-    4,
-    'Tunis , Center Urbain',
-    520
-  )];
+  Cars : Car[] = [];
 
   getCars()
   {

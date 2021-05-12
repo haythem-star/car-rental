@@ -4,12 +4,14 @@ import { HomeComponent } from './home/home.component';
 import {CategoriesComponent} from './categories/categories.component';
 import { AboutAsComponent} from './about-as/about-as.component';
 import { AddCarComponent } from './admin/add-car/add-car.component';
+import { RentalFormComponent } from './rental-form/rental-form.component';
 
 
 const routes: Routes = [
   {path : '' , redirectTo : '/home', pathMatch : 'full'},
   {path : 'home' , component : HomeComponent},
   {path : 'categories',component: CategoriesComponent},
+  {path :'rental/:id' , component :RentalFormComponent},
   {path :'about_as' , component : AboutAsComponent},
   {path :'addCar' , component : AddCarComponent}
 ];

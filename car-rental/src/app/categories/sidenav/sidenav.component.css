@@ -21,17 +21,6 @@
     margin-top: 4px;
   }
 
-  .example-panel-red.mat-select-panel {
-    background: rgba(255, 0, 0, 0.5);
-  }
-  
-  .example-panel-green.mat-select-panel {
-    background: rgba(0, 255, 0, 0.5);
-  }
-  
-  .example-panel-blue.mat-select-panel {
-    background: rgba(0, 0, 255, 0.5);
-  }
 
 
   mat-slider {

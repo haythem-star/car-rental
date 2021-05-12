@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {Car} from '../../shared/Car.model'
 
@@ -10,6 +11,7 @@ import {Car} from '../../shared/Car.model'
 export class CarComponent implements OnInit {
   details = false;
   @Input() car : Car ;
+  @Input() index : Number;
   mark:string;
 
   markCar()
@@ -32,7 +34,7 @@ export class CarComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private route : ActivatedRoute,private router : Router) { }
 
   ngOnInit(): void {
     this.markCar();
@@ -41,6 +43,12 @@ export class CarComponent implements OnInit {
   showDetails()
   {
     this.details=!this.details;
+  }
+
+  onRent()
+  {
+    this.router.navigate(['rental',this.index]);
+
   }
 
 }
