@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Car } from 'src/app/shared/Car.model';
-import { CarsService } from 'src/app/shared/cars.service';
+// import { Car } from 'src/app/shared/Car.model';
+import {Car} from '../../shared/Car.model'
+import { CarsService } from '../../shared/cars.service';
 
 @Component({
   selector: 'app-add-car',
