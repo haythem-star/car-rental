@@ -14,3 +14,8 @@ mat-paginator
     background-color: rgba(43, 153, 226, 0.404);
     border-radius: 8px;
 }
+
+.example-container
+{
+    height: 100%;
+}

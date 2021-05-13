@@ -11,6 +11,7 @@ export class Car {
         public gearbox : string,
         public speed : number,
         public seats : number,
+        public city : string,
         public location : string,
         public price : number
     ){}

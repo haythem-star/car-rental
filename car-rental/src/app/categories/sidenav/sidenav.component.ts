@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CarsService } from '../../shared/cars.service';
 
 export interface Task {
   name: string;
@@ -32,8 +33,22 @@ export class SidenavComponent implements OnInit {
 
 allComplete: boolean = false;
 
-updateAllComplete() {
-  this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+constructor(private carService : CarsService){}
+
+updateAllComplete(index : number) {
+  this.task.subtasks[index].completed=!this.task.subtasks[index].completed;
+  if(this.task.subtasks.filter(t => t.completed).length == 0)
+  {
+    this.carService.getCars()
+  }
+  else if (this.task.subtasks[index].completed)
+  {
+    this.carService.setFilterMark(this.task.subtasks[index].name);
+  }else
+  {
+    this.carService.deleteFilterMark(this.task.subtasks[index].name);
+  }
+  this.allComplete = (this.task.subtasks != null) && this.task.subtasks.every(t => t.completed);
 }
 
 someComplete(): boolean {

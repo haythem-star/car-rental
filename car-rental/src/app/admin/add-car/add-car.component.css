@@ -3,9 +3,17 @@ label
     font-weight: bold;
 }
 
+
 .container {
     margin-top: 100px;
+    position: relative;
   }
+
+.formcenter
+{
+  width: 50%;
+  margin: auto;
+}
   
   input.ng-invalid.ng-touched,select.ng-invalid.ng-touched {
     border: 1px solid red;

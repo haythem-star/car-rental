@@ -1,7 +1,7 @@
 
     <div class="container">
-        <div class="col-md-5">
-            <form [formGroup]="newCarForm" (ngSubmit)="onSubmit()">
+        <div class="formcenter">
+            <form [formGroup]="newCarForm" (ngSubmit)="onSubmit()" >
                 <div class="form-group">
                     <label for="model">Model</label>
                     <input 
@@ -101,6 +101,19 @@
                     </div>
                 </div>
                 <br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="mark">City </label>
+                            <select 
+                            id="city"
+                            formControlName="city"
+                            class="form-control">
+                                <option *ngFor="let c of city" [value]="c">{{c}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="model">Location</label>
                     <input 
@@ -141,4 +154,8 @@
             </form>
     
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>

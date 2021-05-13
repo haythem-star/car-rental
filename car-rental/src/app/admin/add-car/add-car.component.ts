@@ -16,6 +16,7 @@ export class AddCarComponent implements OnInit {
   rentalSocieties : string[] = ['EuropCar','Sixt','Dallar','Centquro','WindyCar'];
   gearbox: string[] = ['Manual','Automatic'];
   seats : string[] = ['2 seats','4 seats'];
+  city: string[] = ['Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
 
   constructor(private carsService : CarsService) { }
 
@@ -35,7 +36,8 @@ export class AddCarComponent implements OnInit {
       'box' : new FormControl(null,[Validators.required]),
       'speed' : new FormControl(null),
       'seat' : new FormControl(null,[Validators.required]),
-      'location' : new FormControl(null,[Validators.required]),
+      'city' : new FormControl(null,[Validators.required]),
+      'location' : new FormControl(null),
       'price' : new FormControl(null,[Validators.required])
 
 
@@ -53,6 +55,7 @@ export class AddCarComponent implements OnInit {
     const society = this.newCarForm.value['society'];
     const gearbox = this.newCarForm.value['box']
     const speed = +this.newCarForm.value['speed'];
+    const city = this.newCarForm.value['city'];
     const location = this.newCarForm.value['location'];
     const price= +this.newCarForm.value['price'];
     let seats = 2;
@@ -60,7 +63,7 @@ export class AddCarComponent implements OnInit {
     {
       seats=4;
     }
-    const newCar = new Car(model,registration,imgPath,description,mark,society,gearbox,speed,seats,location,price);
+    const newCar = new Car(model,registration,imgPath,description,mark,society,gearbox,speed,seats,city,location,price);
 
     
     this.carsService.addCar(newCar);

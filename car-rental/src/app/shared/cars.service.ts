@@ -9,6 +9,7 @@ export class CarsService {
   carsChanged = new Subject<Car[]>();
 
   Cars : Car[] = [];
+  carsfilter : Car[]= [];
 
   getCars()
   {
@@ -25,6 +26,24 @@ export class CarsService {
   {
     this.Cars = cars;
     this.carsChanged.next(this.Cars.slice());
+  }
+
+  setFilterMark(mark : string)
+  {
+    const carsMarkFilter = this.Cars.filter(car => car.mark == mark);
+    this.carsfilter=this.carsfilter.concat(carsMarkFilter);
+    this.carsChanged.next(this.carsfilter.slice());
+    
+  }
+
+  deleteFilterMark(mark : string)
+  {
+    if(this.carsfilter.length == 0)
+    {
+      this.carsfilter =this.Cars;
+    }
+    this.carsfilter=this.carsfilter.filter(car => car.mark !== mark);
+    this.carsChanged.next(this.carsfilter.slice());
   }
 
   constructor() { }
