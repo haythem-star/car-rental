@@ -5,12 +5,8 @@
             <div class="px-4 pt-0 pb-4 cover">
                 <div class="media align-items-end profile-head">
                     <div class="profile mr-5">
-                        <img src="./assets/images/admin.png" alt="..." width="100" class="rounded mb-2 img-thumbnail">
-                        
-                        <a href="#" class="btn btn-outline-dark btn-sm btn-block">Upload new photo</a>
-                        
-                         <input type="file" class="account-settings-fileinput">
-                    
+                        <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" width="100"> <br/>
+                        <input type='file' (change)="onSelectFile($event)">
                     </div>
                     <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0">Your Profile</h4>

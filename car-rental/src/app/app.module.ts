@@ -19,7 +19,8 @@ import { SettingProfileComponent } from './setting-profile/setting-profile.compo
 import { RouterModule, Routes } from '@angular/router';
 import { NavProfileComponent } from './nav-profile/nav-profile.component';
 import { MenuProfileComponent } from './menu-profile/menu-profile.component';
-import { GeneralProfileComponent } from './general-profile/general-profile.component' ;
+import { GeneralProfileComponent } from './general-profile/general-profile.component';
+import { TestComponent } from './test/test.component' ;
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     NavProfileComponent,
     MenuProfileComponent,
     GeneralProfileComponent,
+    TestComponent,
     
 
 

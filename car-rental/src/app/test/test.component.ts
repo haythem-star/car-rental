@@ -1,14 +1,12 @@
 import { Component} from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-nav-profile',
-  templateUrl: './nav-profile.component.html',
-  styleUrls: ['./nav-profile.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
-export class NavProfileComponent{
-  url: any = '';
-  
+export class TestComponent {
+  url:any = '';
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -20,5 +18,4 @@ export class NavProfileComponent{
       }
     }
   }
-
 }
