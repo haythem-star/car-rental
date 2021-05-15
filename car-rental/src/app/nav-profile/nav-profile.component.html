@@ -6,7 +6,9 @@
                 <div class="media align-items-end profile-head">
                     <div class="profile mr-5">
                         <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" width="100"> <br/>
+                        <span class="hiddenFileInput">
                         <input type='file' (change)="onSelectFile($event)">
+                        </span>
                     </div>
                     <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0">Your Profile</h4>
