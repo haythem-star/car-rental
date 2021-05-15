@@ -2,16 +2,102 @@
 <div class="parallax-content baner-content" id="home">
         <div class="container">
             <div class="text-content">
-                <h2><em>RENTAL</em> <span>CAR</span> </h2>
-                <p>Tinker is free HTML CSS template from templatemo.com that can be used for any kind of website. Please tell your friends about us. Thank you.</p>
-                <div class="primary-white-button">
-                    <a href="#" class="scroll-link" data-id="about">Let's Start</a>
-                </div>
+                <h2><em>Find Great Deals for </em> <span>Car Rental</span> </h2>
+                <p> 
+                    We have great offers for daily, weekly and long term rentals. Find the cheapest prices online, for your future Car Rental in  quick easy steps.
+                    </p><br>
+             
+                    <button class='btn-sign' (click)='login()' >Sign-up</button>
+                
             </div>
         </div>
     </div>
 
 
+   
+
+
+
+
+
+   
+                               <!-- les Occasions -->
+    <section id="about" class="page-section">
+        <div class="bloc-title">
+            <h3>Occasions à la une  <span>un grand choix de voitures d'occasion</span></h3>
+        </div >
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-3 col-sm-6 col-xs-12" *ngFor='let i of OccasionCar'>
+                 
+                 
+                  <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image" 
+          [ngStyle]="{'background-image' : 'url('+mark+')','background-size' : 'cover', 'cursor': 'pointer'}"></div>
+          <mat-card-title>{{i.model}}</mat-card-title>
+          <mat-card-subtitle>{{i.mark}}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="imgSize" mat-card-image  [src]="i.imgPath"
+        alt="Photo of a Shiba Inu"  style="min-height: 150px;">
+        <mat-card-content>
+          <h3><img src="assets/img/outline_location_on_black_36dp.png" alt="location">
+            <a href="#"><mark style="color: rgb(25, 102, 202);">{{i.location}}</mark></a>
+          </h3>
+          <hr>  
+          <div *ngIf="details">
+            <p>
+              {{i.description}}
+            </p> 
+            <hr>
+          </div>
+          <ul class="main-header__item-list ">
+                      <li class="main-header__item"> <img src="assets/img/outline_groups_black_36dp.png" alt="seat"><br><mark><strong>{{i.seats}} seats</strong></mark></li>
+                      <li class="main-header__item"> <img src="assets/img/gearbox.png" alt="gearbox"><br><mark><strong>{{i.gearbox}}</strong></mark></li>
+                      <li class="main-header__item"><img src="assets/img/outline_speed_black_36dp.png" alt="speed"><br><mark><strong>{{i.speed}} Km/h</strong></mark></li>
+          </ul>
+          <hr>
+          <h2><strong style="color: green;">{{i.price}}TND/Week</strong></h2>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button style="color: blueviolet;"  matBadgeColor="accent" >LIKE</button>
+          <button mat-button style="color: blueviolet;" color="primary" >RENT</button>
+          <button type="button" class="btn btn-outline-warning" >more</button>
+        </mat-card-actions>
+      </mat-card>
+                 
+     
+                 
+                 
+            
+              <!--      <div class="service-item">
+                        
+                        <img [src]="i.image" alt='photo d"une voiture' style="max-height: 150px;">
+            
+                        <h4>{{ i.marke }}
+                            {{i.model}}
+                        </h4>
+                        <div class="line-dec"></div>
+                        <p>
+                            Age : {{i.age}}<br>
+                            Color : {{i.color}}<br>
+                            Price : {{i.prix}}
+
+                        </p>
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="portfolio">Continue Reading</a>
+                        </div>
+                    </div>-->
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+   
+   
+                                    <!-- Tous les marques-->
     <div class="brands-list-widget">
         <div class="container">
     
@@ -19,85 +105,11 @@
                     <h3>Showroom auto  <span>Toutes les marques automobiles</span></h3>
                 </div >
             
-                        <a href="/alfa-romeo" >
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1.png?t=2"><img src="https://catalogue.automobile.tn/marques/1.png?t=2" alt="Alfa Romeo"></picture>            </a>
-                        <a href="/audi">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/2.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/2.png?t=2"><img src="https://catalogue.automobile.tn/marques/2.png?t=2" alt="Audi"></picture>            </a>
-                        <a href="/bmw">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/3.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/3.png?t=2"><img src="https://catalogue.automobile.tn/marques/3.png?t=2" alt="BMW"></picture>            </a>
-                        <a href="/changan">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1655.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1655.png?t=2"><img src="https://catalogue.automobile.tn/marques/1655.png?t=2" alt="Changan"></picture>            </a>
-                        <a href="/chery">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1544.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1544.png?t=2"><img src="https://catalogue.automobile.tn/marques/1544.png?t=2" alt="Chery"></picture>            </a>
-                        <a href="/dfsk">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1602.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1602.png?t=2"><img src="https://catalogue.automobile.tn/marques/1602.png?t=2" alt="DFSK"></picture>            </a>
-                        <a href="/dongfeng">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1640.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1640.png?t=2"><img src="https://catalogue.automobile.tn/marques/1640.png?t=2" alt="Dongfeng"></picture>            </a>
-                        <a href="/fiat">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/88.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/88.png?t=2"><img src="https://catalogue.automobile.tn/marques/88.png?t=2" alt="Fiat"></picture>            </a>
-                        <a href="/foday">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1653.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1653.png?t=2"><img src="https://catalogue.automobile.tn/marques/1653.png?t=2" alt="Foday"></picture>            </a>
-                        <a href="/ford">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/6.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/6.png?t=2"><img src="https://catalogue.automobile.tn/marques/6.png?t=2" alt="Ford"></picture>            </a>
-                        <a href="/foton">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1644.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1644.png?t=2"><img src="https://catalogue.automobile.tn/marques/1644.png?t=2" alt="Foton"></picture>            </a>
-                        <a href="/geely">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1615.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1615.png?t=2"><img src="https://catalogue.automobile.tn/marques/1615.png?t=2" alt="Geely"></picture>            </a>
-                        <a href="/great-wall">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1549.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1549.png?t=2"><img src="https://catalogue.automobile.tn/marques/1549.png?t=2" alt="Great Wall"></picture>            </a>
-                        <a href="/haval">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1550.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1550.png?t=2"><img src="https://catalogue.automobile.tn/marques/1550.png?t=2" alt="Haval"></picture>            </a>
-                        <a href="/honda">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/188.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/188.png?t=2"><img src="https://catalogue.automobile.tn/marques/188.png?t=2" alt="Honda"></picture>            </a>
-                        <a href="/hyundai">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/216.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/216.png?t=2"><img src="https://catalogue.automobile.tn/marques/216.png?t=2" alt="Hyundai"></picture>            </a>
-                        <a href="/jaguar">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/144.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/144.png?t=2"><img src="https://catalogue.automobile.tn/marques/144.png?t=2" alt="Jaguar"></picture>            </a>
-                        <a href="/jeep">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/690.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/690.png?t=2"><img src="https://catalogue.automobile.tn/marques/690.png?t=2" alt="Jeep"></picture>            </a>
-                        <a href="/kia">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/7.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/7.png?t=2"><img src="https://catalogue.automobile.tn/marques/7.png?t=2" alt="KIA"></picture>            </a>
-                        <a href="/land-rover">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/137.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/137.png?t=2"><img src="https://catalogue.automobile.tn/marques/137.png?t=2" alt="Land Rover"></picture>            </a>
-                        <a href="/mahindra">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1497.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1497.png?t=2"><img src="https://catalogue.automobile.tn/marques/1497.png?t=2" alt="Mahindra"></picture>            </a>
-                        <a href="/mazda">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/8.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/8.png?t=2"><img src="https://catalogue.automobile.tn/marques/8.png?t=2" alt="Mazda"></picture>            </a>
-                        <a href="/mercedes-benz">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/9.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/9.png?t=2"><img src="https://catalogue.automobile.tn/marques/9.png?t=2" alt="Mercedes-Benz"></picture>            </a>
-                        <a href="/mg">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/904.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/904.png?t=2"><img src="https://catalogue.automobile.tn/marques/904.png?t=2" alt="MG"></picture>            </a>
-                        <a href="/mini">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/198.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/198.png?t=2"><img src="https://catalogue.automobile.tn/marques/198.png?t=2" alt="Mini"></picture>            </a>
-                        <a href="/mitsubishi">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1504.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1504.png?t=2"><img src="https://catalogue.automobile.tn/marques/1504.png?t=2" alt="Mitsubishi"></picture>            </a>
-                        <a href="/peugeot">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/12.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/12.png?t=2"><img src="https://catalogue.automobile.tn/marques/12.png?t=2" alt="Peugeot"></picture>            </a>
-                        <a href="/porsche">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/125.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/125.png?t=2"><img src="https://catalogue.automobile.tn/marques/125.png?t=2" alt="Porsche"></picture>            </a>
-                        <a href="/seat">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/14.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/14.png?t=2"><img src="https://catalogue.automobile.tn/marques/14.png?t=2" alt="Seat"></picture>            </a>
-                        <a href="/skoda">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1209.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1209.png?t=2"><img src="https://catalogue.automobile.tn/marques/1209.png?t=2" alt="Skoda"></picture>            </a>
-                        <a href="/ssangyong">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/221.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/221.png?t=2"><img src="https://catalogue.automobile.tn/marques/221.png?t=2" alt="Ssangyong"></picture>            </a>
-                        <a href="/suzuki">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1246.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1246.png?t=2"><img src="https://catalogue.automobile.tn/marques/1246.png?t=2" alt="Suzuki"></picture>            </a>
-                        <a href="/tata">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1268.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1268.png?t=2"><img src="https://catalogue.automobile.tn/marques/1268.png?t=2" alt="Tata"></picture>            </a>
-                        <a href="/toyota">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/207.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/207.png?t=2"><img src="https://catalogue.automobile.tn/marques/207.png?t=2" alt="Toyota"></picture>            </a>
-                        <a href="/volkswagen">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/15.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/15.png?t=2"><img src="https://catalogue.automobile.tn/marques/15.png?t=2" alt="Volkswagen"></picture>            </a>
-                        <a href="/wallyscar">
-                    <picture><source type="image/webp" srcset="https://catalogue.automobile.tn/marques/1476.webp?t=2"><source type="image/png" srcset="https://catalogue.automobile.tn/marques/1476.png?t=2"><img src="https://catalogue.automobile.tn/marques/1476.png?t=2" alt="Wallyscar"></picture>            </a>
-            
-            
-                       
+                        <a  *ngFor='let i of marque' [href]="i.name" >
+                    <picture><source type="image/webp" [srcset]="i.webp"><source type="image/png" [srcset]="i.png"><img [src]="i.png" [alt]="i.name"></picture> </a>       
     
         </div>
     </div>
-
     <br><br> <br><br>
     <app-footer></app-footer>
     

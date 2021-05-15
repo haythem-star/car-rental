@@ -12,12 +12,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 // import { NavbarModule, WavesModule, ButtonsModule } from 'ng-uikit-pro-standard';
 import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bootstrap-md'
-
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     imports : [
@@ -38,13 +39,18 @@ import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bo
         NavbarModule,
         WavesModule,
         ButtonsModule,
-        IconsModule
+        MatFormFieldModule,
+        MatInputModule,
+        IconsModule,
+        MatNativeDateModule
     ],
     exports : [
+        MatFormFieldModule,
         MatAutocompleteModule,
         MatBadgeModule,
         MatBottomSheetModule,
         MatButtonModule,
+        MatInputModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
@@ -58,7 +64,9 @@ import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bo
         NavbarModule,
         WavesModule,
         ButtonsModule,
-        IconsModule
+        IconsModule,
+        MatNativeDateModule,
+     
     ]
 
 })
