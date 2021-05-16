@@ -20,7 +20,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavProfileComponent } from './nav-profile/nav-profile.component';
 import { MenuProfileComponent } from './menu-profile/menu-profile.component';
 import { GeneralProfileComponent } from './general-profile/general-profile.component';
-import { TestComponent } from './test/test.component' ;
+import { TestComponent } from './test/test.component';
+import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.component' ;
 
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     MenuProfileComponent,
     GeneralProfileComponent,
     TestComponent,
+    InfoMenuProfileComponent,
     
 
 

@@ -1,27 +1,14 @@
-<div class="row py-8 px-4">
-    <div class="col-md-9 mx-auto">
-        <!-- Profile widget -->
-        <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-5">
-                        <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" width="100"> <br/>
-                        <span class="hiddenFileInput">
-                        <input type='file' (change)="onSelectFile($event)">
-                        </span>
-                    </div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Your Profile</h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Tunis</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-end text-center">
-                <ul class="profile-header-tab nav nav-tabs">
-                    <button type="button" class="btn btn-light"> Log out </button>
-                    
-                </ul>
-            </div>
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://www.couverturefb.com/upload/2013/10/05/20131005010530-ef9ee52f.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-default opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h1 class="display-2 text-white">Hello Jesse</h1>
+          <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+          <a href="#!" class="btn btn-info">Edit profile</a>
         </div>
-    </div>  
-</div>     
+      </div>
+    </div>
+  </div>
