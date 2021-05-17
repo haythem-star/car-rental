@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CarsStorageService } from 'src/app/shared/cars-storage.service';
 // import { Car } from 'src/app/shared/Car.model';
 import {Car} from '../../shared/Car.model'
 import { CarsService } from '../../shared/cars.service';
@@ -19,7 +20,8 @@ export class AddCarComponent implements OnInit {
   seats : string[] = ['2 seats','4 seats'];
   city: string[] = ['Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
 
-  constructor(private carsService : CarsService) { }
+  constructor(private carsService : CarsService,
+    private carStorageService : CarsStorageService) { }
 
   ngOnInit(): void {
     this.formInit();
@@ -66,7 +68,7 @@ export class AddCarComponent implements OnInit {
     }
     const newCar = new Car(model,registration,imgPath,description,mark,society,gearbox,speed,seats,city,location,price);
 
-    
+    this.carStorageService.storeCar(newCar);
     this.carsService.addCar(newCar);
     this.newCarForm.reset();
 

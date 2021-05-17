@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CarsStorageService} from './shared/cars-storage.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {CarsStorageService} from './shared/cars-storage.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit {
   title = 'car-rental';
   constructor(private carsStorage: CarsStorageService){}
 
@@ -16,8 +16,5 @@ export class AppComponent implements OnInit,OnDestroy {
 
   }
 
-  ngOnDestroy()
-  {
-    this.carsStorage.storeCars();
-  }
+  
 }

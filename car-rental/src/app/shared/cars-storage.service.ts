@@ -12,10 +12,9 @@ export class CarsStorageService {
   constructor(private http : HttpClient,
               private carsService : CarsService) { }
 
-  storeCars()
+  storeCar(car : Car)
   {
-    const carsTable = this.carsService.getCars();
-    this.http.put('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json',carsTable)
+    this.http.post('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json',car)
     .subscribe(response => 
       {
         console.log(response);
@@ -25,10 +24,11 @@ export class CarsStorageService {
 
   fetchCars()
   {
-    this.http.get<Car[]>('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json')
+    this.http.get('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json')
     .pipe(map(cars => 
       {
-        return cars.map(car => 
+        const carsTable = Object.values(cars);
+        return carsTable.map(car => 
           {
             const updatecar = {...car,booking : car.booking ? car.booking : []}
             if (!car.likes.clients)

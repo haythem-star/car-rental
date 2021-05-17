@@ -23,7 +23,7 @@ export class CarComponent implements OnInit {
         break;
       case 'Ford': this.mark='https://www.carlogos.org/car-logos/ford-logo-2003.png';
         break;
-      case 'Toyota': this.mark='https://lh3.googleusercontent.com/proxy/CeOGFK3XS-7NUzopKGBRRnP6JhTDn293WSU-WK54Xe-GmCuBTtOAv0lWwiz6kwQEOVUadRx7jxEeoXFvC7z31iQvPHtaEJbQ-Bup6G2qt2E6nRyWhLeFe0U';
+      case 'Toyota': this.mark='https://global.toyota/pages/global_toyota/mobility/toyota-brand/emblem_ogp_001.png';
         break;
       case 'Honda': this.mark='https://cdn.1min30.com/wp-content/uploads/2017/09/Logo-Honda.jpg';
         break;
