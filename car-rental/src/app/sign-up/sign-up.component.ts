@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import Swal from "sweetalert2"
 
 @Component({
   selector: 'app-sign-up',
@@ -15,6 +16,13 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(form : NgForm){
 console.log(form)
+
+Swal.fire({
+  title: 'Good Job',
+  text: 'Your subscription has been confirmed!',
+  icon: 'success',
+
+})
   }
 
 }

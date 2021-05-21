@@ -1,5 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
+
 import { MatDialog } from '@angular/material/dialog';
+
+
 import {Car} from '../shared/Car.model';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 
@@ -9,6 +13,7 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   OccasionCar : Car[] = [
     {mark:'Citroën',model :'Nemo ',location :'Tunis/centre ville',seats:4,speed:120 ,gearbox:'OIl Mills',imgPath:"assets/img/citron.jpg",price: 900},
     {mark:'Bmw',model :'e92 316i KIT M',location :'Sousse/sahloul',seats:4,speed:200 ,gearbox:'Paper Mills',imgPath:"assets/img/bmw.jpg",price: 2500},
@@ -55,15 +60,27 @@ marque =[{name :'alfa-romeo',webp:'https://catalogue.automobile.tn/marques/1.web
 ]
 
 
-  constructor(private dialog: MatDialog) { }
+
+
+
+  constructor(private dialog: MatDialog ) {
+    
+   }
 
   ngOnInit(): void {
+  
+  
   }
+
+
+
   login(): void {
     const dialogRef = this.dialog.open(SignUpComponent, {
       width: '700px',
       height: '550px'
     });
+
+   
   }
 
   

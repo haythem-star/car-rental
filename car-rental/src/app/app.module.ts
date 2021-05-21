@@ -15,7 +15,9 @@ import {ProfileComponent} from './profile/profile.component';
 import {SigninComponent} from './signin/signin.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactUsComponent } from './about-as/contact-us/contact-us.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     ProfileComponent,
     SigninComponent,
     SignUpComponent,
-    FooterComponent
+    FooterComponent,
+    ContactUsComponent
 
 
   ],
@@ -37,7 +40,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

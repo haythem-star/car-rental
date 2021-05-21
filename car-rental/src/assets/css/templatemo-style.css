@@ -1,10 +1,4 @@
-/* 
 
-Tinker Template
-
-http://www.templatemo.com/tm-506-tinker
-
-*/
 
 * {
     margin: 0;
@@ -59,7 +53,7 @@ p {
 	border-radius: 20px;
 }
 
-.pop-button h4 {
+.pop-button h4  {
 	display: inline-block;
 	background-color: #33c1cf;
 	font-size: 13px!important;

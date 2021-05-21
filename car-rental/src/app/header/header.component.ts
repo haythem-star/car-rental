@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SigninComponent } from '../signin/signin.component';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild }
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +32,14 @@ export class HeaderComponent implements OnInit,AfterViewInit {
         this.sticky = false;
       }
     }
+   login() : void {
+    const dialogRef = this.dialog.open(SigninComponent, {
+      width: '500px',
+      height: '550px'
+    });
 
-}
+   } 
+  }
+
 
 

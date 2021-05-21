@@ -1,10 +1,11 @@
+
+
+
 <div #stickyMenu
 [class.sticky] = "sticky">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <a class="navbar-brand" href="#">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/2555/2555013.svg?token=exp=1618605782~hmac=6b7cca3db10b6bbe0b437e4f784b5c74" width="30" height="30" alt="">
-          </a>
+   
+      <a  class="navbar-brand scroll-top"  [routerLink]="['/home']"><em>R</em>Car</a>
         <button class="navbar-toggler" type="button" appScroll>
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,9 +14,7 @@
             <li class="nav-item ">
               <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" [routerLink]="['categories']" routerLinkActive="active">Categories</a>         
-            </li> -->
+           
             <li class="nav-item dropdown" >
               <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button" >Categories</a>
               <ul class="dropdown-menu">
@@ -28,7 +27,19 @@
             </li>
           </ul>
         </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item ">
+            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; font-size: 14px;"(click)="login()">Login</button>
+          </li>
+        </ul>
+
       </nav>  
 </div>
 
- 
+
+            
+         
+          
+
+
