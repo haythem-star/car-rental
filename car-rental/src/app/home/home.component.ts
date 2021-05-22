@@ -2,10 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 
 import {Car} from '../shared/Car.model';
 import { SignUpComponent } from '../sign-up/sign-up.component';
+import {carService} from "../services/car.service"
 
 @Component({
   selector: 'app-home',
@@ -14,12 +16,8 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
 })
 export class HomeComponent implements OnInit {
 
-  OccasionCar : Car[] = [
-    {mark:'Citroën',model :'Nemo ',location :'Tunis/centre ville',seats:4,speed:120 ,gearbox:'OIl Mills',imgPath:"assets/img/citron.jpg",price: 900},
-    {mark:'Bmw',model :'e92 316i KIT M',location :'Sousse/sahloul',seats:4,speed:200 ,gearbox:'Paper Mills',imgPath:"assets/img/bmw.jpg",price: 2500},
-    {mark:'Passat',model :'b8 tdi',location :'Monastir',seats:4,speed:140 ,gearbox:'OIl Mills',imgPath:"assets/img/passat.jpg",price: 500},
-    {mark:'Peugeot',model :'301',location :'Tunis/Barcelona',seats:4,speed:130 ,gearbox:'OIl Mills',imgPath:"assets/img/peugeot.jpg",price: 2000}] ;
-
+ cars :Car[];
+ subscription: Subscription;
 
 
 marque =[{name :'alfa-romeo',webp:'https://catalogue.automobile.tn/marques/1.webp?t=2', png :'https://catalogue.automobile.tn/marques/1.png?t=2'},
@@ -63,11 +61,18 @@ marque =[{name :'alfa-romeo',webp:'https://catalogue.automobile.tn/marques/1.web
 
 
 
-  constructor(private dialog: MatDialog ) {
+  constructor(private dialog: MatDialog  ,public carService :carService ) {
     
    }
 
   ngOnInit(): void {
+    this.subscription = this.carService.carsChanged
+    .subscribe(
+      (cars: Car[]) => {
+        this.cars = cars;
+      }
+    );
+  this.cars = this.carService.getCars();
   
   
   }
