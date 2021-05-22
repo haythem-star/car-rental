@@ -24,7 +24,7 @@
                                <!-- les Occasions -->
     <section id="about" class="page-section">
         <div class="bloc-title">
-            <h3>Occasions à la une  <span>un grand choix de voitures d'occasion</span></h3>
+            <h3>Featured Opportunities  <span>a large selection of used cars </span></h3>
         </div >
         <div class="container">
             <div class="row" >
@@ -102,14 +102,22 @@
         <div class="container">
     
                         <div class="bloc-title">
-                    <h3>Showroom auto  <span>Toutes les marques automobiles</span></h3>
+                    <h3>Showroom auto  <span>All car brands </span></h3>
                 </div >
             
-                        <a  *ngFor='let i of marque' [href]="i.name" >
-                    <picture><source type="image/webp" [srcset]="i.webp"><source type="image/png" [srcset]="i.png"><img [src]="i.png" [alt]="i.name"></picture> </a>       
+                        <a  *ngFor='let i of marques' [href]="i.name" >
+                    <picture><img [src]="i.imgpath" [alt]="i.name"></picture> </a>       
     
         </div>
-    </div>
+        <br><br>
+           <div style="text-align: center ;">
+             <button class='btn btn-primary' style="width: 150px; height: 50px; font-size: 20px;  text-align: center;
+               overflow: hidden; padding-bottom: 20px;" (click)="navBrands()" >all brands </button>
+           </div>
+        
+     </div>
+
+
     <br><br> <br><br>
     <app-footer></app-footer>
     
