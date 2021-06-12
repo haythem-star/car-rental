@@ -14,7 +14,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css',
+  "../../assets/css/lightbox.css"
+  ]
 })
 export class HomeComponent implements OnInit {
 
