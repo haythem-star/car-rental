@@ -25,17 +25,6 @@ import { AccountSettingsProfileComponent } from './account-settings-profile/acco
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { HistoryProfileComponent } from './history-profile/history-profile.component' ;
 
-const appRoutes: Routes = [
-  { path: 'profile', component: ProfileComponent, children: [
-    { path: 'settings', component: AccountSettingsProfileComponent },
-    { path: 'security', component: SecurityProfileComponent },
-    { path: 'history', component: HistoryProfileComponent },
-    { path: 'profileinformation', component: InfoMenuProfileComponent },
-    { path: 'notifications', component: NotificationProfileComponent }
-  ] },
-  { path: '', component: AppComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +54,6 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialsModule,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
