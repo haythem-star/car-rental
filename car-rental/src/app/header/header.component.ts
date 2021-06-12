@@ -5,7 +5,12 @@ import { SigninComponent } from '../signin/signin.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css',
+  '../../assets/css/fontAwesome.css',
+  '../../assets/css/hero-slider.css',
+  '../../assets/css/owl-carousel.css',
+  '../../assets/css/templatemo-style.css',
+  "../../assets/css/lightbox.css"]
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
 
