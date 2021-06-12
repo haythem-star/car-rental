@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Swal from "sweetalert2"
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +10,7 @@ import Swal from "sweetalert2"
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService :AuthService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,8 @@ Swal.fire({
   icon: 'success',
 
 })
+
+
   }
 
 }
