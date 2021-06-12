@@ -14,8 +14,16 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
 // import { NavbarModule, WavesModule, ButtonsModule } from 'ng-uikit-pro-standard';
-import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bootstrap-md'
+import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bootstrap-md';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 
@@ -38,7 +46,14 @@ import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bo
         NavbarModule,
         WavesModule,
         ButtonsModule,
-        IconsModule
+        IconsModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatPaginatorModule,
     ],
     exports : [
         MatAutocompleteModule,
@@ -58,7 +73,15 @@ import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bo
         NavbarModule,
         WavesModule,
         ButtonsModule,
-        IconsModule
+        IconsModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatPaginatorModule,
+        MatSliderModule
     ]
 
 })

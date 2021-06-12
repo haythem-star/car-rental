@@ -3,7 +3,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
         <a class="navbar-brand" href="#">
-            <img src="https://www.flaticon.com/svg/vstatic/svg/2555/2555013.svg?token=exp=1618605782~hmac=6b7cca3db10b6bbe0b437e4f784b5c74" width="30" height="30" alt="">
+            <img src="https://images-platform.99static.com/4opJGDcNqWg_LOP7i7lm5_K3rI0=/500x500/top/smart/99designs-contests-attachments/7/7123/attachment_7123946" 
+            width="100" height="60" alt="">
           </a>
         <button class="navbar-toggler" type="button" appScroll>
           <span class="navbar-toggler-icon"></span>
@@ -17,7 +18,9 @@
               <a class="nav-link" [routerLink]="['categories']" routerLinkActive="active">Categories</a>         
             </li> -->
             <li class="nav-item dropdown" >
-              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button" >Categories</a>
+              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button"
+              [routerLink]="['categories']" routerLinkActive="active"
+               >Categories</a>
               <ul class="dropdown-menu">
                   <li><a style="cursor: pointer;" class="dropdown-item" href="#">save Data</a></li>
                   <li><a style="cursor: pointer;" class="dropdown-item" href="#">Fetch Data</a></li>
@@ -25,6 +28,9 @@
           </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['about_as']" routerLinkActive="active">About as</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['addCar']" routerLinkActive="active">Add new Car</a>
             </li>
           </ul>
         </div>
