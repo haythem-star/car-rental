@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import {MaterialsModule} from './material.model'
 
@@ -22,6 +23,9 @@ import { SidenavComponent } from './categories/sidenav/sidenav.component';
 import { AddCarComponent } from './admin/add-car/add-car.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RentalFormComponent } from './rental-form/rental-form.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactUsComponent } from './about-as/contact-us/contact-us.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { RentalFormComponent } from './rental-form/rental-form.component';
     PlaceDateComponent,
     SidenavComponent,
     AddCarComponent,
-    RentalFormComponent
+    RentalFormComponent,
+    FooterComponent,
+    ContactUsComponent
 
 
   ],
@@ -50,7 +56,12 @@ import { RentalFormComponent } from './rental-form/rental-form.component';
     MaterialsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
+    
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

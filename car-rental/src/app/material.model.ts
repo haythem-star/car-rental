@@ -12,19 +12,18 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 // import { NavbarModule, WavesModule, ButtonsModule } from 'ng-uikit-pro-standard';
 import { NavbarModule, WavesModule, ButtonsModule,IconsModule } from 'angular-bootstrap-md';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSliderModule} from '@angular/material/slider';
-
 
 
 @NgModule({
@@ -54,12 +53,18 @@ import {MatSliderModule} from '@angular/material/slider';
         MatRadioModule,
         MatSelectModule,
         MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        IconsModule,
+        MatNativeDateModule
     ],
     exports : [
+        MatFormFieldModule,
         MatAutocompleteModule,
         MatBadgeModule,
         MatBottomSheetModule,
         MatButtonModule,
+        MatInputModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
@@ -81,7 +86,9 @@ import {MatSliderModule} from '@angular/material/slider';
         MatRadioModule,
         MatSelectModule,
         MatPaginatorModule,
-        MatSliderModule
+        MatSliderModule,
+        MatNativeDateModule,
+     
     ]
 
 })
