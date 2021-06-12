@@ -26,6 +26,16 @@ import { RentalFormComponent } from './rental-form/rental-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './about-as/contact-us/contact-us.component';
 
+import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
+import { SettingProfileComponent } from './setting-profile/setting-profile.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NavProfileComponent } from './nav-profile/nav-profile.component';
+import { MenuProfileComponent } from './menu-profile/menu-profile.component';
+import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.component';
+import { LeftMenuProfileComponent } from './left-menu-profile/left-menu-profile.component';
+import { AccountSettingsProfileComponent } from './account-settings-profile/account-settings-profile.component';
+import { SecurityProfileComponent } from './security-profile/security-profile.component';
+import { HistoryProfileComponent } from './history-profile/history-profile.component' ;
 
 @NgModule({
   declarations: [
@@ -45,7 +55,17 @@ import { ContactUsComponent } from './about-as/contact-us/contact-us.component';
     AddCarComponent,
     RentalFormComponent,
     FooterComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    NotificationProfileComponent,
+    SettingProfileComponent,
+    NavProfileComponent,
+    MenuProfileComponent,
+    InfoMenuProfileComponent,
+    LeftMenuProfileComponent,
+    AccountSettingsProfileComponent,
+    SecurityProfileComponent,
+    HistoryProfileComponent,
+    
 
 
   ],

@@ -8,6 +8,12 @@ import { RentalFormComponent } from './rental-form/rental-form.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {AuthGuard} from './services/auth.guard.service'
 
+import { ProfileComponent } from './profile/profile.component';
+import { AccountSettingsProfileComponent } from './account-settings-profile/account-settings-profile.component';
+import { SecurityProfileComponent } from './security-profile/security-profile.component';
+import { HistoryProfileComponent } from './history-profile/history-profile.component';
+import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.component';
+import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
 
 
 const routes: Routes = [
@@ -17,7 +23,15 @@ const routes: Routes = [
   {path :'rental/:id' , component :RentalFormComponent},
   {path : 'signUp' , component : SignUpComponent},
   {path :'about_as' , component : AboutAsComponent},
-  {path :'addCar' , component : AddCarComponent}
+  {path :'addCar' , component : AddCarComponent},
+  {path :'about_as' , component : AboutAsComponent},
+  { path: 'profile', component: ProfileComponent, children: [
+    { path: 'settings', component: AccountSettingsProfileComponent },
+    { path: 'security', component: SecurityProfileComponent },
+    { path: 'history', component: HistoryProfileComponent },
+    { path: 'profileinformation', component: InfoMenuProfileComponent },
+    { path: 'notifications', component: NotificationProfileComponent }
+]}
 ];
 
 @NgModule({
