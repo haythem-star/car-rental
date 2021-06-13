@@ -84,7 +84,7 @@ export class AuthService {
     login(email: string, password: string) {
       return this.http
         .post<User>(
-          'https://localhost:3000/',
+          'http://localhost:5000/api/user/login',
           {
             email: email,
             password: password,
