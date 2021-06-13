@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import {AuthService} from '../services/auth.service'
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -11,7 +13,7 @@ export class SigninComponent implements OnInit {
  password="";
  email="";
  error: string = null;
-  constructor(public authService : AuthService ,private router :Router) { }
+  constructor(public authService : AuthService ,private router :Router ,private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +36,17 @@ this.authService.login(email, password).subscribe(
 );
 
 form.reset();
-}}
+}
+
+resetPass(){
+  
+    const dialogRef = this.dialog.open(ResetPasswordComponent, {
+      width: '500px',
+      height: '550px'
+    });
+
+}
+
+}
 
 

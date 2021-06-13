@@ -15,8 +15,8 @@ export class carStorage {
     storeCars() {
         const cars = this.carService.getCars();
         this.http
-          .put(
-            'https://ng-course-recipe-book-65f10.firebaseio.com/cars.json',
+          .post(
+            'http://localhost:5000/car',
             cars
           )
           .subscribe(response => {
@@ -27,7 +27,7 @@ export class carStorage {
       fetchRecipes() {
         return this.http
           .get<Car[]>(
-            'https://ng-course-recipe-book-65f10.firebaseio.com/cars.json'
+            'http://localhost:5000/car'
           )
           .pipe(
             map(cars => {
