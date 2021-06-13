@@ -14,7 +14,7 @@ export class CarsStorageService {
 
   storeCar(car : Car)
   {
-    this.http.post('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json',car)
+    this.http.post('https://localhost:3000',car)
     .subscribe(response => 
       {
         console.log(response);
@@ -24,7 +24,7 @@ export class CarsStorageService {
 
   fetchCars()
   {
-    this.http.get('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json')
+    this.http.get('https://localhost:3000')
     .pipe(map(cars => 
       {
         const carsTable = Object.values(cars);

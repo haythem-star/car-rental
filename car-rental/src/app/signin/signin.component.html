@@ -5,8 +5,8 @@
         <mat-card-header>
             <mat-card-title>Login In</mat-card-title>
             </mat-card-header>
-
-<mat-tab label="Login">
+ <form (ngSubmit)="login(form)" #form="ngForm">
+  <mat-tab label="Login">
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
       <input type="email" matInput placeholder="Email" value="" [(ngModel)]="email">
@@ -18,7 +18,8 @@
       <input type="password" matInput placeholder="Password" [(ngModel)]="password">
       <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
-    <button mat-button color="primary" (click)="login()">Login</button>
+    <button mat-button color="primary" >Login</button>
   </mat-tab>
+ </form>
     </mat-card>
 </div>

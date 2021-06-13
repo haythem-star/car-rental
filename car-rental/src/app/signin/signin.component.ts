@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import {AuthService} from '../services/auth.service'
 @Component({
   selector: 'app-signin',
@@ -6,17 +8,32 @@ import {AuthService} from '../services/auth.service'
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
- password=""
- email=""
-  constructor(public authService : AuthService) { }
+ password="";
+ email="";
+ error: string = null;
+  constructor(public authService : AuthService ,private router :Router) { }
 
   ngOnInit(): void {
   }
 
-  login() {
-    console.log("tahaa");
+  login(form : NgForm) {
+    const email = form.value.email;
+    const password = form.value.cin;
     
+this.authService.login(email, password).subscribe(
+  resData => {
+    console.log(resData);
+   
+    this.router.navigate(['/home']);
+  },
+  errorMessage => {
+    console.log(errorMessage);
+    this.error = errorMessage;
+    
+  }
+);
 
-    }
+form.reset();
+}}
 
-}
+

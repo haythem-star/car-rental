@@ -1,16 +1,18 @@
 import { Rental } from "./rental.model";
 
 export class User {
-    admin : boolean;
+    public password :string;
     constructor(
+        public user_name :string,
         public first_name :string,
         public last_name : string,
-        public National : string,
-        public region : string,
-        public birth_date : Date,
-        public phone_number : string,
-        private cin : string,
-        private rentals : Rental[] = []
+        public phone :string,
+        public address : string,
+        public email : string,
+        public admin : boolean,
+        public rentals : Rental[] = [],
+        
+        public token : string
 
     ){}
 }
