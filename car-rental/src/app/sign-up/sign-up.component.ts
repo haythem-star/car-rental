@@ -38,6 +38,8 @@ const firstname = form.value.firstname;
 const phone = form.value.phone;
 const address = form.value.address;
 const password = form.value.password ;
+console.log(lastname);
+
 
 
 

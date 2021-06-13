@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http"
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http"
 import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import {User} from "../shared/user.model";
@@ -49,16 +49,16 @@ export class AuthService {
     signup(username :string , lastname :string ,firstname: string ,email: string, password: string ,phone :string ,address: string ) {
       return this.http
         .post<User>(
-          'https://localhost:3000/',
-          { username: username,
-            lastname: lastname,
-            firstname : firstname,
-            email: email,
-            password: password,
-            phone : phone,
-            address :address
+          'http://localhost:5000/api/user/register',
+          { "username": username,
+            "lastname": lastname,
+            "firstname" : firstname,
+            "email": email,
+            "password": password,
+            "phone" : phone,
+            "address" :address
         
-          }
+          },{headers : new HttpHeaders().append('Content-Type','application/json')}
         )
         .pipe(
           catchError(this.handleError),
