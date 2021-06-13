@@ -89,7 +89,8 @@ export class AuthService {
             email: email,
             password: password,
         
-          }
+          },
+          {headers : new HttpHeaders().append('Content-Type','application/json')}
         )
         .pipe(
           catchError(this.handleError),
