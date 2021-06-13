@@ -4,6 +4,9 @@ import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import {User} from "../shared/user.model";
 import { Rental } from "../shared/rental.model";
+import { Router } from "@angular/router";
+import { SigninComponent } from "../signin/signin.component";
+import { MatDialog } from "@angular/material/dialog";
 
 
 // export interface AuthResponseData {
@@ -28,15 +31,20 @@ export class AuthService {
 
   user = new BehaviorSubject<User>(null);
     loggedIn = false;
+ 
    
-    constructor(private http : HttpClient){}
+    constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
 
 // Utiliser pour Guard
-    isAuthenticated() {
+    isAdmin() {
+      let admin :boolean =false;
+      this.user.subscribe(user=>{
+        admin =user.admin ;
+      })
       const promise = new Promise(
         (resolve, reject) => {
           setTimeout(() => {
-            resolve(this.loggedIn);
+            resolve(admin);
           }, 800);
         }
       );
@@ -75,6 +83,10 @@ export class AuthService {
               resData.token
              
             );
+            const dialogRef = this.dialog.open(SigninComponent, {
+              width: '500px',
+              height: '550px'
+            });
           })
         );
     }
@@ -105,12 +117,21 @@ export class AuthService {
               resData.rentals,
               resData.email,
               resData.token
-             
             );
+            this.loggedIn=true;
+           
+            
           })
         );
+       
     }
 
+
+    logout() {
+      this.user.next(null);
+      this.router.navigate(['/home']);
+      localStorage.removeItem('userData');
+    }
 
 
     private handleAuthentication(
