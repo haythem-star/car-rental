@@ -14,10 +14,10 @@ import { SigninComponent } from '../signin/signin.component';
   "../../assets/css/lightbox.css"]
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
- loginMode  =this.AuthService.loggedIn;
+ 
 
   constructor(private dialog: MatDialog ,private AuthService :AuthService) { }
-
+  loginMode  =this.AuthService.loggedIn;
   ngOnInit(): void {
   }
 

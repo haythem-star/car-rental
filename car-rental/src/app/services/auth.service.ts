@@ -31,7 +31,7 @@ export class AuthService {
 
   user = new BehaviorSubject<User>(null);
     loggedIn = false;
-     admin :boolean =false;
+     admin :boolean =true;
      
    
     constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
@@ -130,6 +130,7 @@ export class AuthService {
       this.user.next(null);
       this.router.navigate(['/home']);
       localStorage.removeItem('userData');
+      this.admin=false;
     }
 
 
