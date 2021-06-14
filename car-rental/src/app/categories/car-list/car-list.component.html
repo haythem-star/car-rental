@@ -2,4 +2,13 @@
         <div class="col-lg-4"  *ngFor="let carItem of carsTable,let i = index">
             <app-car [car]="carItem" [index]="i"></app-car>
         </div>
+       
+</div>
+<div class="row">
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              (page)="OnPageChange($event)"
+              >
+    </mat-paginator>
 </div>
