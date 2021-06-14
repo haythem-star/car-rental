@@ -31,20 +31,19 @@ export class AuthService {
 
   user = new BehaviorSubject<User>(null);
     loggedIn = false;
- 
+     admin :boolean =false;
+     
    
     constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
 
 // Utiliser pour Guard
     isAdmin() {
-      let admin :boolean =false;
-      this.user.subscribe(user=>{
-        admin =user.admin ;
-      })
+     
+    
       const promise = new Promise(
         (resolve, reject) => {
           setTimeout(() => {
-            resolve(admin);
+            resolve(this.admin);
           }, 800);
         }
       );
@@ -140,6 +139,7 @@ export class AuthService {
     ) {
       const user = new User(username ,firstname, lastname,phone,address, email,admin,rentals,token );
       this.user.next(user);
+      this.admin=user.admin;
       localStorage.setItem('userData', JSON.stringify(user.token));
     }
 
