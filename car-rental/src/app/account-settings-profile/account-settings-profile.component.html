@@ -14,7 +14,7 @@
             <div class="col-lg-6">
               <div class="form-group focused">
                 <label class="form-control-label" for="input-username" style="margin-left: -25px;">Change Username</label>
-                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="" (keyup)="Onkey($event)">
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@
         <hr class="my-4">
         <!-- Description -->
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
+            <button type="button" class="btn btn-primary" (click)="updateUser({{Username}})">Save changes</button>&nbsp;
           
            </div>    
       </form>
