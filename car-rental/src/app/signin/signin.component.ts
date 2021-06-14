@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import {AuthService} from '../services/auth.service'
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 @Component({
@@ -22,20 +23,11 @@ export class SigninComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     
-this.authService.login(email, password).subscribe(
-  resData => {
-    console.log(resData);
-   
-    this.router.navigate(['/home']);
-  },
-  errorMessage => {
-    console.log(errorMessage);
-    this.error = errorMessage;
-    
-  }
-);
-
+this.authService.login(email, password);
+  
 form.reset();
+this.router.navigate(['/categories']);
+this.authService.loggedIn=true;
 }
 
 resetPass(){

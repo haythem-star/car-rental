@@ -45,6 +45,8 @@ console.log(lastname);
 
 this.authService.signup(username,lastname,firstname,email,password,phone,address).subscribe(
   resData => {
+    this.router.navigate(['/home']);
+    this.authService.loggedIn=true;
     console.log(resData);
     Swal.fire({
       title: 'Good Job',
@@ -53,7 +55,6 @@ this.authService.signup(username,lastname,firstname,email,password,phone,address
     
     })
    
-    this.router.navigate(['/home']);
   },
   errorMessage => {
     console.log(errorMessage);

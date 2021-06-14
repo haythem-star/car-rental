@@ -16,16 +16,12 @@ import {
   
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      return this.authService.isAdmin()
-        .then(
-          (admin: boolean) => {
-            if (admin) {
-              return true;
-            } else {
-              this.router.navigate(['/']);
-            }
-          }
-        );
+                    if( this.authService.isAdmin()){
+                      return true ;
+                    } else {
+                      this.router.navigate['/'];
+                      return false
+                    }
     }
   
   }

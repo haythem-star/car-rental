@@ -7,47 +7,47 @@ import { Rental } from "../shared/rental.model";
 import { Router } from "@angular/router";
 import { SigninComponent } from "../signin/signin.component";
 import { MatDialog } from "@angular/material/dialog";
+import Swal from "sweetalert2";
 
 
-// export interface AuthResponseData {
-//          user_name :string,
-//         first_name :string,
-//          last_name : string,
-//          phone :string,
-//          address : string,
-//          email : string,
-//          admin: boolean,
-//          rentals : Rental[],
-//         token : string
+ export interface AuthResponseData {
+user :User ,
+msg :string ;
+token :string;
 
- 
-// }
+ }
 
 @Injectable({
     providedIn : "root"
 })
 
 export class AuthService {
-
+  loggedIn : boolean;
   user = new BehaviorSubject<User>(null);
-    loggedIn = false;
-     admin :boolean =true;
+    
+     admin :string;
      
    
     constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
 
+  
+
 // Utiliser pour Guard
     isAdmin() {
-     
     
-      const promise = new Promise(
-        (resolve, reject) => {
-          setTimeout(() => {
-            resolve(this.admin);
-          }, 800);
-        }
-      );
-      return promise;
+      const userData: {
+        username: string,
+        firstname: string,
+        lastname: string,
+        phone: string,
+        address: string,
+        email :string,
+        admin :boolean,
+        rentals : [],
+        token :string
+      } = JSON.parse(localStorage.getItem('userData'));
+        return userData.admin;
+    
     }
 
 
@@ -55,7 +55,7 @@ export class AuthService {
     
     signup(username :string , lastname :string ,firstname: string ,email: string, password: string ,phone :string ,address: string ) {
       return this.http
-        .post<User>(
+        .post<AuthResponseData>(
           'http://localhost:5000/api/user/register',
           { "username": username,
             "lastname": lastname,
@@ -71,21 +71,18 @@ export class AuthService {
           catchError(this.handleError),
           tap(resData => {
             this.handleAuthentication(
-              resData.user_name,
-              resData.first_name,
-              resData.last_name,
-              resData.phone,
-              resData.address,
-              resData.admin,
-              resData.rentals,
-              resData.email,
+              resData.user.username,
+              resData.user.firstname,
+              resData.user.lastname,
+              resData.user.phone,
+              resData.user.address,
+              resData.user.admin,
+              resData.user.rentals,
+              resData.user.email,
               resData.token
              
             );
-            const dialogRef = this.dialog.open(SigninComponent, {
-              width: '500px',
-              height: '550px'
-            });
+           
           })
         );
     }
@@ -93,8 +90,8 @@ export class AuthService {
 
 
     login(email: string, password: string) {
-      return this.http
-        .post<User>(
+       this.http
+        .post<AuthResponseData>(
           'http://localhost:5000/api/user/login',
           {
             email: email,
@@ -107,30 +104,42 @@ export class AuthService {
           catchError(this.handleError),
           tap(resData => {
             this.handleAuthentication(
-              resData.user_name,
-              resData.first_name,
-              resData.last_name,
-              resData.phone,
-              resData.address,
-              resData.admin,
-              resData.rentals,
-              resData.email,
+              resData.user.username,
+              resData.user.firstname,
+              resData.user.lastname,
+              resData.user.phone,
+              resData.user.address,
+              resData.user.admin,
+              resData.user.rentals,
+              resData.user.email,
               resData.token
             );
-            this.loggedIn=true;
            
-            
           })
-        );
+        ).subscribe(
+          resData => {
+            this.loggedIn=true;
+            console.log(resData);
+            Swal.fire({
+              title: 'Welcome',
+              text: "Hi "+ resData.user.lastname
+               +" you are welcome !!",
+              icon: 'success',
+            
+            })
        
-    }
+    },
+    errorMessage => {
+      console.log(errorMessage);
+      
+    })
 
-
+  }
     logout() {
       this.user.next(null);
       this.router.navigate(['/home']);
       localStorage.removeItem('userData');
-      this.admin=false;
+    
     }
 
 
@@ -140,8 +149,10 @@ export class AuthService {
     ) {
       const user = new User(username ,firstname, lastname,phone,address, email,admin,rentals,token );
       this.user.next(user);
-      this.admin=user.admin;
-      localStorage.setItem('userData', JSON.stringify(user.token));
+    
+      localStorage.setItem('userData', JSON.stringify(user));
+      
+      
     }
 
 

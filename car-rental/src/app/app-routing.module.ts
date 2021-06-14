@@ -16,6 +16,7 @@ import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.
 import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AuthInterceptorService} from './services/auth.interceptor.service'
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path :'rental/:id' , component :RentalFormComponent},
   {path : 'signUp' , component : SignUpComponent},
   {path :'about_as' , component : AboutAsComponent},
-  {path :'addCar' , component : AddCarComponent },
+  {path :'addCar' , component : AddCarComponent  , canActivate :[AuthGuard]},
   {path :'about_as' , component : AboutAsComponent},
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'settings', component: AccountSettingsProfileComponent },
