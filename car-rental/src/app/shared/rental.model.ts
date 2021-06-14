@@ -5,7 +5,7 @@ export class Rental {
         public car : Car,
         public start_rental : Date,
         public end_rental : Date,
-        public place_of_contract : string,
+        public durations : number,
         public prise : number
     ){}
 }
