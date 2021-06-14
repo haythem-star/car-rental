@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../services/history-service.service';
-import { Rent } from '../models/rent';
+import { Rental } from "../shared/rental.model";
 
 @Component({
   selector: 'app-history-profile',
@@ -9,7 +9,7 @@ import { Rent } from '../models/rent';
 })
 export class HistoryProfileComponent implements OnInit {
 
-  rents = new Array<Rent>();
+  rents = new Array<Rental>();
 
   constructor(private service:HistoryService) { }
 
@@ -17,12 +17,12 @@ export class HistoryProfileComponent implements OnInit {
     this.service.getHistory().subscribe(response => {
       this.rents = response.map(item => 
         {
-          return new Rent(
+          return new Rental(
               item.car, 
               item.start_rental,
               item.end_rental,
-              item.price,
-              item.user
+              item.place_of_contract,
+              item.prise
           );
         });
     });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserInformationService } from '../services/user-information.service';
-import { User } from '../models/user';
+import { User } from "../shared/user.model";
 
 @Component({
   selector: 'app-info-menu-profile',
@@ -15,7 +15,7 @@ export class InfoMenuProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.getInformation().subscribe(response => {
-      this.user = new User(response.username,response.email,response.password,response.firstname,response.lastname,response.address,response.admin,response.phone)   
+      this.user = new User(response.user_name,response.first_name,response.last_name,response.phone,response.address,response.email,response.admin,response.rentals,response.token)   
     });
   }
 
