@@ -31,7 +31,7 @@ export class AuthService {
 
   user = new BehaviorSubject<User>(null);
     loggedIn = false;
-     admin :boolean =true;
+     admin :boolean =false;
      
    
     constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
