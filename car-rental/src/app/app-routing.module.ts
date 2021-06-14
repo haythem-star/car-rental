@@ -14,6 +14,8 @@ import { SecurityProfileComponent } from './security-profile/security-profile.co
 import { HistoryProfileComponent } from './history-profile/history-profile.component';
 import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.component';
 import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {AuthInterceptorService} from './services/auth.interceptor.service'
 
 
 const routes: Routes = [
@@ -23,7 +25,7 @@ const routes: Routes = [
   {path :'rental/:id' , component :RentalFormComponent},
   {path : 'signUp' , component : SignUpComponent},
   {path :'about_as' , component : AboutAsComponent},
-  {path :'addCar' , component : AddCarComponent},
+  {path :'addCar' , component : AddCarComponent },
   {path :'about_as' , component : AboutAsComponent},
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'settings', component: AccountSettingsProfileComponent },
@@ -36,7 +38,12 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers :[ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }]
 })
 export class AppRoutingModule { 
   

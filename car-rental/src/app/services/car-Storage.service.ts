@@ -1,7 +1,7 @@
 
 import {Injectable} from "@angular/core"
 import {carService} from "./car.service"
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { Car } from "../shared/Car.model";
 
@@ -15,9 +15,10 @@ export class carStorage {
     storeCars() {
         const cars = this.carService.getCars();
         this.http
-          .put(
-            'https://ng-course-recipe-book-65f10.firebaseio.com/cars.json',
-            cars
+          .post(
+            'http://localhost:5000/car',
+            cars,
+            {headers : new HttpHeaders().append('Content-Type','application/json')}
           )
           .subscribe(response => {
             console.log(response);
@@ -27,7 +28,8 @@ export class carStorage {
       fetchRecipes() {
         return this.http
           .get<Car[]>(
-            'https://ng-course-recipe-book-65f10.firebaseio.com/cars.json'
+            'http://localhost:5000/car',
+            {headers : new HttpHeaders().append('Content-Type','application/json')}
           )
           .pipe(
             map(cars => {
@@ -43,7 +45,14 @@ export class carStorage {
             })
           )
       }
+        setCar(car :Car){
+           this.http
+          .post(
+            "http://localhost:5000/car/addCar", car,
+            {headers : new HttpHeaders().append('Content-Type','application/json')}
+          ).subscribe(response =>{console.log(response)})
 
+        }
 
 
 

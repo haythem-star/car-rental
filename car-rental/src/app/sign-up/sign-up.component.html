@@ -10,6 +10,22 @@
               <mat-form-field>
                 <input
                   matInput
+                  placeholder="User Name"
+                  required
+                  name="username"
+                  ngModel
+                  #firstname="ngModel">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error
+                  *ngIf="firstname.invalid">
+                  User name is required
+                </mat-error>
+  
+              </mat-form-field>
+
+              <mat-form-field>
+                <input
+                  matInput
                   placeholder="First Name"
                   required
                   name="firstname"
@@ -27,7 +43,7 @@
                   matInput
                   placeholder="Last Name"
                   required
-                  name="lastName"
+                  name="lastname"
                   ngModel
                   #lastname="ngModel">
                 <mat-icon matSuffix>perm_identity</mat-icon>
@@ -37,19 +53,36 @@
                 </mat-error>
   
               </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="EMAIL"
+                  required
+                  email
+                  name="email"
+                  ngModel
+                  #email="ngModel">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error
+                  *ngIf="email.invalid">
+                  Email is required
+                </mat-error>
+  
+              </mat-form-field>
+             
               
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="Nationality"
+                  placeholder="Address"
                   required
-                  name="National"
+                  name="address"
                   ngModel
                   #national="ngModel">
                 <mat-icon matSuffix>language</mat-icon>
                 <mat-error
                   *ngIf="national.invalid">
-                  Nationality is required
+                  Address is required
                 </mat-error>
   
               </mat-form-field>
@@ -59,7 +92,7 @@
                   matInput
                   placeholder="phone number"
                   required
-                  name="phone_number"
+                  name="phone"
                   ngModel
                   #phone_number="ngModel">
                 <mat-icon matSuffix>perm_phone_msg</mat-icon>
@@ -70,27 +103,17 @@
   
               </mat-form-field>
 
-              
-              <mat-form-field >
-                <mat-label>Your birthday</mat-label>
-                <input matInput [matDatepicker]="picker" name="birthday" ngModel #birthday="ngModel">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-                <mat-error
-                *ngIf="birthday.invalid">
-                Birthday is required
-              </mat-error>
-              </mat-form-field>
+            
               
 
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="CIN"
+                  placeholder="password"
                   type="password"
                   required
                   minlength="6"
-                  name="cin"
+                  name="password"
                   ngModel
                   #cin="ngModel">
                   <mat-error
@@ -99,7 +122,7 @@
                   </mat-error>
                   <mat-error
                     *ngIf="cin.errors && cin.errors.minlength">
-                    Cin must be of length 6
+                    Password must be of length 6
                   </mat-error>
                 <mat-icon matSuffix>lock</mat-icon>
   

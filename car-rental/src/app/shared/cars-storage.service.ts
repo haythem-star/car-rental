@@ -14,7 +14,7 @@ export class CarsStorageService {
 
   storeCar(car : Car)
   {
-    this.http.post('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json',car)
+    this.http.post('https://localhost:5000/car',car)
     .subscribe(response => 
       {
         console.log(response);
@@ -24,23 +24,23 @@ export class CarsStorageService {
 
   fetchCars()
   {
-    this.http.get('https://cars-rental-2483d-default-rtdb.firebaseio.com/cars.json')
-    .pipe(map(cars => 
+    this.http.get<{cars : Car[]}>('http://localhost:5000/car/cars/'+1)
+    // .pipe(map(cars => 
+    //   {
+    //     const carsTable = Object.values(cars);
+    //     return carsTable.map(car => 
+    //       {
+    //         const updatecar = {...car,booking : car.booking ? car.booking : []}
+    //         if (!car.likes.clients)
+    //         {
+    //           updatecar.likes={...car.likes,clients : []};
+    //         }
+    //         return updatecar;
+    //       })
+    //   }))
+    .subscribe(result =>
       {
-        const carsTable = Object.values(cars);
-        return carsTable.map(car => 
-          {
-            const updatecar = {...car,booking : car.booking ? car.booking : []}
-            if (!car.likes.clients)
-            {
-              updatecar.likes={...car.likes,clients : []};
-            }
-            return updatecar;
-          })
-      }))
-    .subscribe(cars =>
-      {
-        this.carsService.setCars(cars);
+        this.carsService.setCars(result.cars);
       })
 
   }

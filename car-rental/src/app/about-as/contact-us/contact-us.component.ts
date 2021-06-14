@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2'
-
+import {MailService} from '../../services/mail.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -14,15 +14,18 @@ import Swal from 'sweetalert2'
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private MailService : MailService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(f :NgForm){
     console.log(f);
-    console.log(f.value.email)
+    const email=f.value.email;
+    const name=f.value.name;
+    const message=f.value.message;
 
+    this.MailService.sendMail(email,name,message);
     Swal.fire({
       title: 'Thank you ',
       text: 'Your message is well received !',

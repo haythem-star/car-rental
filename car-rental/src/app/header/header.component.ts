@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 import { SigninComponent } from '../signin/signin.component';
 
 @Component({
@@ -13,9 +14,10 @@ import { SigninComponent } from '../signin/signin.component';
   "../../assets/css/lightbox.css"]
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
+ 
 
-  constructor(private dialog: MatDialog) { }
-
+  constructor(private dialog: MatDialog ,private AuthService :AuthService) { }
+  loginMode  =this.AuthService.loggedIn;
   ngOnInit(): void {
   }
 
@@ -44,6 +46,9 @@ export class HeaderComponent implements OnInit,AfterViewInit {
     });
 
    } 
+   logout(){
+     this.AuthService.logout();
+   }
   }
 
 
