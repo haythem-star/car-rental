@@ -140,7 +140,7 @@ export class AuthService {
     ) {
       const user = new User(username ,firstname, lastname,phone,address, email,admin,rentals,token );
       this.user.next(user);
-      localStorage.setItem('userData', JSON.stringify(user));
+      localStorage.setItem('userData', JSON.stringify(user.token));
     }
 
 
