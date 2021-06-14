@@ -25,7 +25,7 @@ const routes: Routes = [
   {path :'rental/:id' , component :RentalFormComponent},
   {path : 'signUp' , component : SignUpComponent},
   {path :'about_as' , component : AboutAsComponent},
-  {path :'addCar' , component : AddCarComponent , canActivate: [AuthGuard]},
+  {path :'addCar' , component : AddCarComponent },
   {path :'about_as' , component : AboutAsComponent},
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'settings', component: AccountSettingsProfileComponent },
