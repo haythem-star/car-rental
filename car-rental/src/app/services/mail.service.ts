@@ -27,12 +27,12 @@ constructor(private http: HttpClient){};
 
       // reset password 
     resetPassword(email :string ){
-      this.http.post<string>( 'http://localhost:5000/api/user/postReset',{'email' :email}
+      this.http.post<{msg : string}>( 'http://localhost:5000/api/user/postReset',{'email' :email}
       ,{headers : new HttpHeaders().append('Content-Type','application/json')})
       .subscribe(res=>{
         Swal.fire({
           title: 'Great !!',
-          text: res,
+          text: res.msg,
           icon: 'success',
         
         })
