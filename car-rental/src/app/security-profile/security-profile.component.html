@@ -23,7 +23,7 @@
             <div class="col-lg-10">
               <div class="form-group focused">
                 <label class="form-control-label" for="input-first-name">New Password</label>
-                <input type="password" id="input-first-name" class="form-control form-control-alternative" placeholder="New Password" >
+                <input type="password" id="input-first-name" class="form-control form-control-alternative" placeholder="New Password" (keyup)="Onkey($event)" >
               </div>
             </div>
             
@@ -42,7 +42,7 @@
         <!-- Address -->
         <!-- Description -->
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
+            <button type="button" class="btn btn-primary" (click)="updatePassword({{password}})">Save changes</button>&nbsp;
           
            </div>
       </form>
