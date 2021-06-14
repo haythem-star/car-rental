@@ -3,7 +3,7 @@ export class Car {
     public likes : {nb : number,clients : []}={nb : 0,clients : []};
     constructor(
         public model : string,
-        public Registration : string,
+        public registration : string,
         public imgPath : string,
         public description : string,
         public mark : string,
