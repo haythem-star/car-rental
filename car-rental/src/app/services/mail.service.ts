@@ -13,7 +13,7 @@ constructor(private http: HttpClient){};
     sendMail(email :string, name:string ,message:string) {
         this.http
           .post(
-            'https://localhost:5000/mail',{'email' :email,
+            'http://localhost:5000/mail',{'email' :email,
             'name' :name,
             'message' :message
           },{headers : new HttpHeaders().append('Content-Type','application/json')}
