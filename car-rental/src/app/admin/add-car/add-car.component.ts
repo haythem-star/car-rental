@@ -52,7 +52,7 @@ export class AddCarComponent implements OnInit {
   onSubmit()
   {
     const model = this.newCarForm.value['model'];
-    const registration = this.newCarForm.value['registraion'];
+    const registration = this.newCarForm.value['registration'];
     const imgPath = this.newCarForm.value['imgPath'];
     const description = this.newCarForm.value['description']
     const mark = this.newCarForm.value['mark'];
