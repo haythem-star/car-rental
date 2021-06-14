@@ -14,7 +14,7 @@ export class CarsStorageService {
 
   storeCar(car : Car)
   {
-    this.http.post('https://localhost:3000',car)
+    this.http.post('https://localhost:5000/car',car)
     .subscribe(response => 
       {
         console.log(response);
@@ -24,7 +24,7 @@ export class CarsStorageService {
 
   fetchCars()
   {
-    this.http.get('https://localhost:3000')
+    this.http.get('https://localhost:5000/car')
     .pipe(map(cars => 
       {
         const carsTable = Object.values(cars);

@@ -4,6 +4,7 @@ import { CarsStorageService } from 'src/app/shared/cars-storage.service';
 // import { Car } from 'src/app/shared/Car.model';
 import {Car} from '../../shared/Car.model'
 import { CarsService } from '../../shared/cars.service';
+import {carStorage} from '../../services/car-Storage.service'
 
 @Component({
   selector: 'app-add-car',
@@ -21,7 +22,7 @@ export class AddCarComponent implements OnInit {
   city: string[] = ['Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
 
   constructor(private carsService : CarsService,
-    private carStorageService : CarsStorageService) { }
+    private carStorageService : CarsStorageService ,private carStorage :carStorage) { }
 
   ngOnInit(): void {
     this.formInit();
@@ -68,8 +69,9 @@ export class AddCarComponent implements OnInit {
     }
     const newCar = new Car(model,registration,imgPath,description,mark,society,gearbox,speed,seats,city,location,price);
 
-    this.carStorageService.storeCar(newCar);
+    this.carStorage.setCar(newCar);
     this.carsService.addCar(newCar);
+
     this.newCarForm.reset();
 
   }

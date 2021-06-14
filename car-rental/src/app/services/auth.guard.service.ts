@@ -16,10 +16,10 @@ import {
   
     canActivate(route: ActivatedRouteSnapshot,
                 state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      return this.authService.isAuthenticated()
+      return this.authService.isAdmin()
         .then(
-          (authenticated: boolean) => {
-            if (authenticated) {
+          (admin: boolean) => {
+            if (admin) {
               return true;
             } else {
               this.router.navigate(['/']);

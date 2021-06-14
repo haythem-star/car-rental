@@ -1,6 +1,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Injectable( { providedIn: 'root' })
 
@@ -21,6 +22,22 @@ constructor(private http: HttpClient){};
             console.log(response);
           });
       }
-    
+
+
+
+      // reset password 
+    resetPassword(email :string ){
+      this.http.post<string>( 'https://localhost:5000/api/user/postReset',{'email' :email}
+      ,{headers : new HttpHeaders().append('Content-Type','application/json')})
+      .subscribe(res=>{
+        Swal.fire({
+          title: 'Great !!',
+          text: res,
+          icon: 'success',
+        
+        })
+        
+      })
+    }
 }
 
