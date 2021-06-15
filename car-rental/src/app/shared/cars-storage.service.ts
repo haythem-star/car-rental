@@ -14,7 +14,7 @@ export class CarsStorageService {
 
   storeCar(car : Car)
   {
-    this.http.post('https://localhost:5000/car',car)
+    this.http.post('http://localhost:5000/car',car)
     .subscribe(response => 
       {
         console.log(response);

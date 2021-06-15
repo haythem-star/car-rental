@@ -44,16 +44,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-  login(): void {
-    const dialogRef = this.dialog.open(SignUpComponent, {
-      width: '700px',
-      height: '550px'
-    });
-
-   
-  }
-
   navBrands(){
 
     this.router.navigate(['/categories']);

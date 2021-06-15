@@ -35,8 +35,13 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item ">
-            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; font-size: 14px;"(click)="login()" *ngIf="!loginMode">Login</button>
-            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; font-size: 14px;"(click)="logout()" *ngIf="loginMode" >Logout</button>
+          
+            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; font-size: 14px;"(click)="signup()" *ngIf="!logginIn()">Sign Up</button>
+            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; font-size: 14px;"(click)="profile()" *ngIf="logginIn()">Your Profile</button>
+          </li>
+          <li class="nav-item ">
+            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px;padding-right: 20px; font-size: 14px;"(click)="login()" *ngIf="!logginIn()">Login</button>
+            <button class="btn btn-primary"  style="width: 100px; height: 30px; padding-left: 20px; padding-right: 20px; font-size: 14px;"(click)="logout()" *ngIf="logginIn()" >Logout</button>
           </li>
         </ul>
 
