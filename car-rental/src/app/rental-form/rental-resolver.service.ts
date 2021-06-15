@@ -8,17 +8,17 @@ import {Rental} from '../shared/rental.model';
 class RentalSession {
 
         public car : Car
-        public start_rental : Date
-        public end_rental : Date
+        public start_rental : string
+        public end_rental : string
         public durations : number
-        public prise : number
+        public price : number
         public sessionId : string
 
 }
 
 
 @Injectable()
-export class RentalResolver implements Resolve<Rental> {
+export class RentalResolver implements Resolve<RentalSession> {
     constructor(private rentService : RentalServiceService){}
     resolve(route : ActivatedRouteSnapshot, state :RouterStateSnapshot ) : Observable<RentalSession> | Promise<RentalSession> | RentalSession {
         return this.rentService.get();

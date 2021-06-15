@@ -31,19 +31,7 @@
       </div>
     </div>
   </div>
-  <input type="hidden" id="sessionId" [value]="sessionId">
 
 </body>
-<script src="https://js.stripe.com/v3/"></script>
-                <script>
-                    var stripe = Stripe('pk_test_51IuQbSCxbz7I0xpYRnDxcadxGC0120u6UiIkFY2TLKtO2HXd6ucGjlhh4b48T0HjyLYSNA9BM8uLvN95WATgsgBE00ep7GbZcX');
-                    var orderBtn = document.getElementById('order-btn');
-                    var inputSession = document.getElementById('sessionId');
-                    orderBtn.addEventListener('click',function(){
-                        stripe.redirectToCheckout({
-                            sessionId : inputSession.value
-                        })
-                    })
-                </script>
 
 </html>
