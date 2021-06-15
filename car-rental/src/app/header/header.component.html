@@ -3,7 +3,7 @@
 
 <div #stickyMenu
 [class.sticky] = "sticky">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
    
       <a  class="navbar-brand scroll-top"  [routerLink]="['/home']"><em>R</em>Car</a>
         <button class="navbar-toggler" type="button" appScroll>
@@ -15,14 +15,10 @@
               <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
             </li>
            
-            <li class="nav-item dropdown" >
-              <a style="cursor: pointer;" class="dropdown-toggle  nav-link" role="button"
+            <li class="nav-item" >
+              <a style="cursor: pointer;" class="nav-link" role="button"
               [routerLink]="['categories']" routerLinkActive="active"
-               >Categories</a>
-              <ul class="dropdown-menu">
-                  <li><a style="cursor: pointer;" class="dropdown-item" href="#">save Data</a></li>
-                  <li><a style="cursor: pointer;" class="dropdown-item" href="#">Fetch Data</a></li>
-              </ul>
+               >Cars</a>
           </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['about_as']" routerLinkActive="active">About as</a>
