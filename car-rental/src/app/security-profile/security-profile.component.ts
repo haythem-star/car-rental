@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ChangePasswordService } from '../services/change-password.service';
 
 @Component({
@@ -7,20 +8,25 @@ import { ChangePasswordService } from '../services/change-password.service';
   styleUrls: ['./security-profile.component.css']
 })
 export class SecurityProfileComponent implements OnInit {
-  private password: String= '';
+ // private password: String= '';
   constructor(private changePasswordService: ChangePasswordService ) { }
 
   ngOnInit() {
     
   }
 
-  updatePassword(password: string) {
+/*  updatePassword(password: string) {
     this.changePasswordService.setpwd(password);
-}
+} */
 
 
-  Onkey(event:any){
+ /* Onkey(event:any){
     this.password= event.target.value;
+  } */
+
+  onSubmit(form: NgForm){
+      const pass= form.value['passwd'];
+      this.changePasswordService.setpwd(pass);
   }
 
   
