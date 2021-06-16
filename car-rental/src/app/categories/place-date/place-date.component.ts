@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { RentalServiceService } from 'src/app/services/rental-service.service';
 
 @Component({
   selector: 'app-place-date',
@@ -21,6 +22,10 @@ export class PlaceDateComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
+    console.log(this.campaignTwo.value.start);
+    console.log(this.campaignTwo.value.start);
+    console.log(this.campaignTwo.value.end);
+    
   }
 
   private _filter(value: string): string[] {
@@ -29,7 +34,7 @@ export class PlaceDateComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  constructor() {
+  constructor(private rentService : RentalServiceService) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -43,5 +48,32 @@ export class PlaceDateComponent implements OnInit {
       start: new FormControl(new Date(year, month, 15)),
       end: new FormControl(new Date(year, month, 19))
     });
+  }
+
+  logChange(event,str : string){
+    if(event != null)
+    {
+      if(str === 'start'){
+        this.rentService.setstart(event.toString().split('(')[0].trim());
+      }else{
+        this.rentService.setend(event.toString().split('(')[0].trim());
+      }
+      // console.log(str + ': ' +event.toString().split('(')[0].trim());
+    }else{
+    if(str === 'start'){
+      this.rentService.setstart(null);
+      // console.log('start : ' + null);
+      
+    }else{
+      this.rentService.setend(null);
+      // console.log('end: ' + null);
+
+    }
+
+  }
+
+
+
+    
   }
 }

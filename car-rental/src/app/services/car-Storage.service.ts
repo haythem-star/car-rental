@@ -35,10 +35,10 @@ export class carStorage {
             return carsTable.map(car => 
               {
                 const updatecar = {...car,booking : car.booking ? car.booking : []}
-                if (!car.likes.clients)
-                {
-                  updatecar.likes={...car.likes,clients : []};
-                }
+                // if (!car.likes.clients)
+                // {
+                //   updatecar.likes={...car.likes,clients : []};
+                // }
                 return updatecar;
               })
           }))

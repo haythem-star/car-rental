@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { RentalServiceService } from 'src/app/services/rental-service.service';
 
 import {Car} from '../../shared/Car.model'
 
@@ -34,7 +36,9 @@ export class CarComponent implements OnInit {
   }
 
 
-  constructor(private route : ActivatedRoute,private router : Router) { }
+  constructor(private route : ActivatedRoute,private router : Router, 
+    private authService : AuthService,
+    private rentalService : RentalServiceService) { }
 
   ngOnInit(): void {
     this.markCar();
@@ -47,7 +51,17 @@ export class CarComponent implements OnInit {
 
   onRent()
   {
-    this.router.navigate(['rental',this.index]);
+    if(this.authService.loggedIn)
+    {
+      console.log('onrent');
+      this.rentalService.getStripeSession(this.car._id).subscribe(result => {
+        this.rentalService.setSession(result.sessionId);
+        this.rentalService.setCar(result.car);
+        this.rentalService.setPrice(result.price);
+        this.router.navigate(['rental',this.index]);
+      })
+    }
+    
 
   }
 

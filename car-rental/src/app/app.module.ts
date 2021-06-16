@@ -36,8 +36,9 @@ import { LeftMenuProfileComponent } from './left-menu-profile/left-menu-profile.
 import { AccountSettingsProfileComponent } from './account-settings-profile/account-settings-profile.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { HistoryProfileComponent } from './history-profile/history-profile.component';
-import { ResetPasswordComponent } from './signin/reset-password/reset-password.component';
-import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component' ;
+import { ResetPasswordComponent } from './signin/reset-password/reset-password.component' ;
+import {RentalResolver} from './rental-form/rental-resolver.service'
+import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,7 @@ import { NewpasswordComponent } from './signin/reset-password/newpassword/newpas
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [RentalResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
