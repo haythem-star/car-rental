@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import {User} from "../shared/user.model" ;
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,12 @@ export class ModifyUsernameService {
 
   
     setuser(username :String){
-      this.httpClient
+     return this.httpClient
      .put(
-       "http://localhost:5000/api/user/updatepassword", username,
+       "http://localhost:5000/api/user/updateUser", username,
        {headers : new HttpHeaders().append('Content-Type','application/json')}
-     ).subscribe(response =>{console.log(response)})
-  
+     ).pipe(tap(response => {console.log(response)}))
     }
+  
+     }
 
-}   

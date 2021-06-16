@@ -14,7 +14,7 @@ export class ChangePasswordService {
   setpwd(mdp :String){
     this.httpClient
    .put(
-     "http://localhost:5000/api/user/updatepassword", mdp,
+     "http://localhost:5000/api/user/updatepassword",{newPassword :mdp},
      {headers : new HttpHeaders().append('Content-Type','application/json')}
    ).subscribe(response =>{console.log(response)})
 
