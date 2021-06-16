@@ -2,7 +2,7 @@ import { Car } from "./Car.model";
 
 export class Rental {
     constructor(
-        public carId : string,
+        public car : Car,
         public start_rental : String,
         public end_rental : String,
         public durations : number,

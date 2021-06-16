@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit()
   {
    
-    this.carsStorage.fetchCars();
+    this.carsStorage.fetchCars(1);
   
 
   }

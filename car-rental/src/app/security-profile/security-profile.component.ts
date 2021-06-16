@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChangePasswordService } from '../services/change-password.service';
 
@@ -8,6 +8,7 @@ import { ChangePasswordService } from '../services/change-password.service';
   styleUrls: ['./security-profile.component.css']
 })
 export class SecurityProfileComponent implements OnInit {
+  @ViewChild('f',{ read: NgForm }) form : any;
  // private password: String= '';
   constructor(private changePasswordService: ChangePasswordService ) { }
 
@@ -24,9 +25,14 @@ export class SecurityProfileComponent implements OnInit {
     this.password= event.target.value;
   } */
 
-  onSubmit(form: NgForm){
-      const pass= form.value['passwd'];
-      this.changePasswordService.setpwd(pass);
+  onSubmit(){
+    console.log('onSubmitpassword ' + this.form.value['passwd'] );
+      if(this.form.value['passwd'])
+      {
+        const pass= this.form.value['passwd'];
+        this.changePasswordService.setpwd(pass);
+      }
+
   }
 
   

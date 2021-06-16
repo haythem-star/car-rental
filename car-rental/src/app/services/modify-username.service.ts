@@ -14,11 +14,13 @@ export class ModifyUsernameService {
 
   
     setuser(username :String){
-     return this.httpClient
+      console.log('in setuser : ' + username);
+      
+       this.httpClient
      .put(
-       "http://localhost:5000/api/user/updateUser", username,
+       "http://localhost:5000/api/user/updateUser", {username: username},
        {headers : new HttpHeaders().append('Content-Type','application/json')}
-     ).pipe(tap(response => {console.log(response)}))
+     ).subscribe(response => {console.log(response)})
     }
   
      }

@@ -24,7 +24,7 @@
               <a class="nav-link" [routerLink]="['about_as']" routerLinkActive="active">About as</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['addCar']" routerLinkActive="active">Add new Car</a>
+              <a class="nav-link" [routerLink]="['addCar']" routerLinkActive="active" *ngIf="admin">Add new Car</a>
             </li>
           </ul>
         </div>

@@ -34,6 +34,7 @@
     <button mat-button style="color: blueviolet;" [matBadge]="car.likes.nb" matBadgeColor="accent" >LIKE</button>
     <button mat-button style="color: blueviolet;" color="primary" (click)="onRent()">RENT</button>
     <button type="button" class="btn btn-outline-warning" (click)="showDetails()">{{details ? 'less' : 'more'}}</button>
+    <button type="button" class="btn btn-outline-danger" (click)="onDelete()" *ngIf="logIn">Delete</button>
   </mat-card-actions>
 </mat-card>
 <br>

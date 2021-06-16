@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModifyUsernameService } from '../services/modify-username.service' ;
 
@@ -8,6 +8,7 @@ import { ModifyUsernameService } from '../services/modify-username.service' ;
   styleUrls: ['./account-settings-profile.component.css']
 })
 export class AccountSettingsProfileComponent implements OnInit {
+  @ViewChild('v',{ read: NgForm }) form : any;
  // private username: String= '';
   constructor(private modifyUsernameService: ModifyUsernameService) { }
 
@@ -23,9 +24,13 @@ export class AccountSettingsProfileComponent implements OnInit {
     this.username= event.target.value;
   } */
 
-  onSubmit(form: NgForm){
-    const name= form.value['name'];
-    this.modifyUsernameService.setuser(name);
+  onSubmit(){
+    if(this.form.value['name'])
+    {
+      const name= this.form.value['name'];
+      this.modifyUsernameService.setuser(name);
+    }
+    
   }
 
 

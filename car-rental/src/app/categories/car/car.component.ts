@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { carStorage } from 'src/app/services/car-Storage.service';
 import { RentalServiceService } from 'src/app/services/rental-service.service';
+import { CarsStorageService } from 'src/app/shared/cars-storage.service';
+import { CarsService } from 'src/app/shared/cars.service';
 
 import {Car} from '../../shared/Car.model'
 
@@ -15,6 +18,7 @@ export class CarComponent implements OnInit {
   @Input() car : Car ;
   @Input() index : Number;
   mark:string;
+  logIn : boolean = false;
 
   markCar()
   {
@@ -38,10 +42,21 @@ export class CarComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private router : Router, 
     private authService : AuthService,
-    private rentalService : RentalServiceService) { }
+    private rentalService : RentalServiceService,
+    private carStorage :CarsStorageService,
+    ) { }
 
   ngOnInit(): void {
     this.markCar();
+    const user = JSON.parse(localStorage.getItem('userData'));
+    if(user)
+    {
+      this.logIn = user.admin;
+    }
+    
+  }
+  onDelete() {
+    this.carStorage.DeleteCar(this.car._id);
   }
 
   showDetails()
@@ -66,5 +81,6 @@ export class CarComponent implements OnInit {
     
 
   }
+
 
 }

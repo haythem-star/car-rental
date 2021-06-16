@@ -15,7 +15,7 @@ export class InfoMenuProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.getInformation().subscribe(response => {
-      this.user = new User(response.username,response.firstname,response.lastname,response.phone,response.address,response.email,response.admin,response.rentals,response.token)   
+      this.user = new User(response.user.username,response.user.firstname,response.user.lastname,response.user.phone,response.user.address,response.user.email,response.user.admin,response.user.rentals,response.user.token)   
     }); 
   }
 
