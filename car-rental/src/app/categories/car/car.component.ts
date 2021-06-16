@@ -51,7 +51,7 @@ export class CarComponent implements OnInit {
 
   onRent()
   {
-    if(this.authService.loggedIn)
+    if(this.authService.loggedIn())
     {
       console.log('onrent');
       this.rentalService.getStripeSession(this.car._id).subscribe(result => {
