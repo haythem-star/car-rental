@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categories',
@@ -11,5 +12,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  
 
 }

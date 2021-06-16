@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setting-profile.component.css']
 })
 export class SettingProfileComponent implements OnInit {
-
-  constructor() { }
+  private value: String= '';
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }
-
+  
+ Onkey(event:any){
+   this.value= event.target.value;
+ }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from '../services/history-service.service';
+import { Rental } from "../shared/rental.model";
 
 @Component({
   selector: 'app-history-profile',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryProfileComponent implements OnInit {
 
-  constructor() { }
+  rents = new Array<Rental>();
 
-  ngOnInit(): void {
+  constructor(private service:HistoryService) { }
+
+  ngOnInit() {
+    this.service.getHistory().subscribe(response => {
+      this.rents = response.map(item => 
+        {
+          return new Rental(
+              item.carId, 
+              item.start_rental,
+              item.end_rental,
+              item.durations,
+              item.price
+          );
+        });
+    });
   }
 
 }
