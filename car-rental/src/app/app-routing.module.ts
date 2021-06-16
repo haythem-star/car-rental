@@ -16,23 +16,28 @@ import { InfoMenuProfileComponent } from './info-menu-profile/info-menu-profile.
 import { NotificationProfileComponent } from './notification-profile/notification-profile.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AuthInterceptorService} from './services/auth.interceptor.service'
+import { RentalResolver } from './rental-form/rental-resolver.service';
+import { AuthService } from './services/auth.service';
+import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component';
 
 
 const routes: Routes = [
   {path : '' , redirectTo : '/home', pathMatch : 'full'},
   {path : 'home' , component : HomeComponent},
   {path : 'categories',component: CategoriesComponent},
-  {path :'rental/:id' , component :RentalFormComponent},
+  {path :'rental/:id' , component :RentalFormComponent,resolve : {service : RentalResolver}},
   {path : 'signUp' , component : SignUpComponent},
   {path :'about_as' , component : AboutAsComponent},
-  {path :'addCar' , component : AddCarComponent },
+  {path :'addCar' , component : AddCarComponent  , canActivate :[AuthGuard]},
   {path :'about_as' , component : AboutAsComponent},
+  {path: 'reset/:token', component: NewpasswordComponent},
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'settings', component: AccountSettingsProfileComponent },
     { path: 'security', component: SecurityProfileComponent },
     { path: 'history', component: HistoryProfileComponent },
     { path: 'profileinformation', component: InfoMenuProfileComponent },
-    { path: 'notifications', component: NotificationProfileComponent }
+    { path: 'notifications', component: NotificationProfileComponent },
+   
 ]}
 ];
 

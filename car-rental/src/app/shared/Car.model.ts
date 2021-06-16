@@ -1,4 +1,5 @@
 export class Car {
+    public _id: string;
     public booking : Date[];
     public likes : {nb : number,clients : []}={nb : 0,clients : []};
     constructor(

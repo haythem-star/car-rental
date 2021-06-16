@@ -37,6 +37,8 @@ import { AccountSettingsProfileComponent } from './account-settings-profile/acco
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { HistoryProfileComponent } from './history-profile/history-profile.component';
 import { ResetPasswordComponent } from './signin/reset-password/reset-password.component' ;
+import {RentalResolver} from './rental-form/rental-resolver.service'
+import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { ResetPasswordComponent } from './signin/reset-password/reset-password.c
     SecurityProfileComponent,
     HistoryProfileComponent,
     ResetPasswordComponent,
+    NewpasswordComponent,
     
 
 
@@ -85,7 +88,7 @@ import { ResetPasswordComponent } from './signin/reset-password/reset-password.c
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [RentalResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
