@@ -19,7 +19,7 @@ export class AddCarComponent implements OnInit {
   rentalSocieties : string[] = ['EuropCar','Sixt','Dallar','Centquro','WindyCar'];
   gearbox: string[] = ['Manual','Automatic'];
   seats : string[] = ['2 seats','4 seats'];
-  city: string[] = ['Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
+  city: string[] = ['Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba','Bizerte','Ben Arous','Nabeul','Gabes','Ariana','Jendouba','kairouan','Tozeur','Zaghouan','Tataouine','Manouba'];
 
   constructor(private carsService : CarsService,
     private carStorageService : CarsStorageService ,private carStorage :carStorage) { }

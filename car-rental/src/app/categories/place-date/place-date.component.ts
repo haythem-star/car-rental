@@ -12,7 +12,7 @@ import { CarsService } from '../../shared/cars.service';
 })
 export class PlaceDateComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['All','Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
+  options: string[] = ['All','Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba','Bizerte','Ben Arous','Nabeul','Gabes','Ariana','Jendouba','kairouan','Tozeur','Zaghouan','Tataouine','Manouba'];
   filteredOptions: Observable<string[]>;
 
   campaignOne: FormGroup;
