@@ -43,31 +43,7 @@ console.log(lastname);
 
 
 
-this.authService.signup(username,lastname,firstname,email,password,phone,address).subscribe(
-  resData => {
-    this.router.navigate(['/home']);
-    this.authService.loggedIn=true;
-    console.log(resData);
-    Swal.fire({
-      title: 'Good Job',
-      text: 'Your subscription has been confirmed!',
-      icon: 'success',
-    
-    })
-   
-  },
-  errorMessage => {
-    console.log(errorMessage);
-    this.error = errorMessage;
-    Swal.fire({
-      title: 'ERROR',
-      text: 'Your subscription has been not confirmed!',
-      icon: 'error',
-    
-    })
-    
-  }
-);
+this.authService.signup(username,lastname,firstname,email,password,phone,address);
 
 form.reset();
 }

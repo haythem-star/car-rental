@@ -17,6 +17,7 @@ import { NotificationProfileComponent } from './notification-profile/notificatio
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AuthInterceptorService} from './services/auth.interceptor.service'
 import { AuthService } from './services/auth.service';
+import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component';
 
 
 const routes: Routes = [
@@ -28,12 +29,14 @@ const routes: Routes = [
   {path :'about_as' , component : AboutAsComponent},
   {path :'addCar' , component : AddCarComponent  , canActivate :[AuthGuard]},
   {path :'about_as' , component : AboutAsComponent},
+  {path: 'reset/:token', component: NewpasswordComponent},
   { path: 'profile', component: ProfileComponent, children: [
     { path: 'settings', component: AccountSettingsProfileComponent },
     { path: 'security', component: SecurityProfileComponent },
     { path: 'history', component: HistoryProfileComponent },
     { path: 'profileinformation', component: InfoMenuProfileComponent },
-    { path: 'notifications', component: NotificationProfileComponent }
+    { path: 'notifications', component: NotificationProfileComponent },
+   
 ]}
 ];
 

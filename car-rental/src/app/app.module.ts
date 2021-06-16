@@ -36,7 +36,8 @@ import { LeftMenuProfileComponent } from './left-menu-profile/left-menu-profile.
 import { AccountSettingsProfileComponent } from './account-settings-profile/account-settings-profile.component';
 import { SecurityProfileComponent } from './security-profile/security-profile.component';
 import { HistoryProfileComponent } from './history-profile/history-profile.component';
-import { ResetPasswordComponent } from './signin/reset-password/reset-password.component' ;
+import { ResetPasswordComponent } from './signin/reset-password/reset-password.component';
+import { NewpasswordComponent } from './signin/reset-password/newpassword/newpassword.component' ;
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ResetPasswordComponent } from './signin/reset-password/reset-password.c
     SecurityProfileComponent,
     HistoryProfileComponent,
     ResetPasswordComponent,
+    NewpasswordComponent,
     
 
 

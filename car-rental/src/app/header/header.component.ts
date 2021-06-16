@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit,AfterViewInit {
  
 
   constructor(private dialog: MatDialog ,private AuthService :AuthService , private router : Router ) { }
-  loginMode  =this.AuthService.loggedIn;
+  
   ngOnInit(): void {
   
   }
@@ -63,8 +63,6 @@ export class HeaderComponent implements OnInit,AfterViewInit {
    } 
    logout(){
      this.AuthService.logout();
-     this.loginMode= false;
-    
    }
 profile(){
   this.router.navigate(['/profile/profileinformation']);

@@ -14,7 +14,7 @@ export class SigninComponent implements OnInit {
  password="";
  email="";
  error: string = null;
-  constructor(public authService : AuthService ,private router :Router ,private dialog: MatDialog) { }
+  constructor(public authService : AuthService ,private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -26,8 +26,8 @@ export class SigninComponent implements OnInit {
 this.authService.login(email, password);
   
 form.reset();
-this.router.navigate(['/categories']);
-this.authService.loggedIn=true;
+
+
 }
 
 resetPass(){

@@ -22,7 +22,7 @@ token :string;
 })
 
 export class AuthService {
-  loggedIn : boolean;
+  
   user = new BehaviorSubject<User>(null);
     
      admin :string;
@@ -84,6 +84,30 @@ export class AuthService {
             );
            
           })
+        ).subscribe(
+          resData => {
+            this.router.navigate(['/home']);
+            
+            console.log(resData);
+            Swal.fire({
+              title: 'Good Job',
+              text: 'Your subscription has been confirmed!',
+              icon: 'success',
+            
+            })
+           
+          },
+          errorMessage => {
+            console.log(errorMessage);
+          
+            Swal.fire({
+              title: 'ERROR',
+              text: 'Your subscription has been not confirmed!',
+              icon: 'error',
+            
+            })
+          
+          }
         );
     }
 
@@ -118,8 +142,9 @@ export class AuthService {
           })
         ).subscribe(
           resData => {
-            this.loggedIn=true;
+          
             console.log(resData);
+            this.router.navigate(['/categories']);
             Swal.fire({
               title: 'Welcome',
               text: "Hi "+ resData.user.lastname
@@ -130,6 +155,12 @@ export class AuthService {
        
     },
     errorMessage => {
+      Swal.fire({
+        title: 'Try Again',
+        text: "bad credential",
+        icon: 'error',
+      
+      })
       console.log(errorMessage);
       
     })
@@ -141,6 +172,10 @@ export class AuthService {
       localStorage.removeItem('userData');
     
     }
+
+
+   
+
 
 
     private handleAuthentication(
