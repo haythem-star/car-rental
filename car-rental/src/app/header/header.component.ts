@@ -18,20 +18,26 @@ import { SigninComponent } from '../signin/signin.component';
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
 
-  admin : boolean= false;
+  // admin : boolean= false;
 
 
   constructor(private dialog: MatDialog ,private AuthService :AuthService , private router : Router ) { }
   
   ngOnInit(): void {
-    const user = JSON.parse(localStorage.getItem('userData'));
-    if(user) {
-      this.admin = user.admin;
-    }
+    // const user = JSON.parse(localStorage.getItem('userData'));
+    // if(user) {
+    //   this.admin = user.admin;
+    // }
 
   }
 
-   
+   admin(){
+    const user = JSON.parse(localStorage.getItem('userData'));
+    if(user) {
+     return user.admin;
+    }
+
+   }
 
   @ViewChild('stickyMenu') menuElement: ElementRef;
 
