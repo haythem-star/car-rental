@@ -64,8 +64,9 @@ export class AuthService {
             "firstname" : firstname,
             "email": email,
             "password": password,
-            "phone" : phone,
-            "address" :address
+            "address" :address,
+            "phone" : phone
+
         
           },{headers : new HttpHeaders().append('Content-Type','application/json')}
         )
