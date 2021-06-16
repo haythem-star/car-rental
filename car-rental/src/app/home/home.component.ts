@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     this.subscription = this.CarsService.carsChanged
     .subscribe(
       (cars: Car[]) => {
-        this.cars = cars;
+        this.cars= cars.slice(0,4);
       }
     );
   this.cars = this.CarsService.getCars();
