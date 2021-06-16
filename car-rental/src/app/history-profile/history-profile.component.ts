@@ -18,11 +18,11 @@ export class HistoryProfileComponent implements OnInit {
       this.rents = response.map(item => 
         {
           return new Rental(
-              item.car, 
+              item.carId, 
               item.start_rental,
               item.end_rental,
-              item.place_of_contract,
-              item.prise
+              item.durations,
+              item.price
           );
         });
     });

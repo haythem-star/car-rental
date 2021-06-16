@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { async } from 'rxjs/internal/scheduler/async';
 import { AuthService } from '../services/auth.service';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 import { SigninComponent } from '../signin/signin.component';
 
 @Component({
@@ -14,12 +17,15 @@ import { SigninComponent } from '../signin/signin.component';
   "../../assets/css/lightbox.css"]
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
- 
 
-  constructor(private dialog: MatDialog ,private AuthService :AuthService) { }
-  loginMode  =this.AuthService.loggedIn;
+
+  constructor(private dialog: MatDialog ,private AuthService :AuthService , private router : Router ) { }
+  
   ngOnInit(): void {
+  
   }
+
+   
 
   @ViewChild('stickyMenu') menuElement: ElementRef;
 
@@ -39,16 +45,32 @@ export class HeaderComponent implements OnInit,AfterViewInit {
         this.sticky = false;
       }
     }
+
+    signup(): void {
+      const dialogRef = this.dialog.open(SignUpComponent, {
+        width: '700px',
+        height: '550px'
+      });
+  
+    }
+
    login() : void {
     const dialogRef = this.dialog.open(SigninComponent, {
       width: '500px',
       height: '550px'
     });
-
+  
    } 
    logout(){
      this.AuthService.logout();
    }
+profile(){
+  this.router.navigate(['/profile/profileinformation']);
+}
+loggedIn(){
+  return !!localStorage.getItem('userData');
+}
+
   }
 
 

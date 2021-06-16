@@ -1,6 +1,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Injectable( { providedIn: 'root' })
@@ -8,7 +9,7 @@ import Swal from 'sweetalert2';
 
 export class MailService {
 
-constructor(private http: HttpClient){};
+constructor(private http: HttpClient, private router :Router){};
 
     sendMail(email :string, name:string ,message:string) {
         this.http
@@ -38,6 +39,23 @@ constructor(private http: HttpClient){};
         })
         
       })
+    }
+
+    newPassword(password :string , passwordToken :string){
+      this.http.post("http://localhost:5000/api/user/postNewPassword",{"password" : password,
+    "passwordToken" :passwordToken}).subscribe(response =>{
+      this.router.navigate(['/home']);
+      Swal.fire({
+        title: 'GOOd',
+        text:  "password reset successfully",
+        icon: 'success',
+      
+      })
+    },
+    errorMessage => {
+      console.log(errorMessage);
+      
+    })
     }
 }
 

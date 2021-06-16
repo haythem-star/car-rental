@@ -16,7 +16,7 @@ export class carStorage {
         const cars = this.carService.getCars();
         this.http
           .post(
-            'http://localhost:5000/car',
+            'http://localhost:5000/car/addCar',
             cars,
             {headers : new HttpHeaders().append('Content-Type','application/json')}
           )
@@ -25,26 +25,31 @@ export class carStorage {
           });
       }
     
-      fetchRecipes() {
-        return this.http
-          .get<Car[]>(
-            'http://localhost:5000/car',
-            {headers : new HttpHeaders().append('Content-Type','application/json')}
-          )
-          .pipe(
-            map(cars => {
-              return cars.map(car => {
-                return {
-                  ...car
-                
-                };
-              });
-            }),
-            tap(cars => {
-              this.carService.setCars(cars);
-            })
-          )
+
+      fetchCars()
+      {
+        this.http.get('http://localhost:5000/car/cars/'+1)
+        .pipe(map(cars => 
+          {
+            const carsTable = Object.values(cars);
+            return carsTable.map(car => 
+              {
+                const updatecar = {...car,booking : car.booking ? car.booking : []}
+                // if (!car.likes.clients)
+                // {
+                //   updatecar.likes={...car.likes,clients : []};
+                // }
+                return updatecar;
+              })
+          }))
+        .subscribe(cars =>
+          {
+            this.carService.setCars(cars);
+          })
+    
       }
+
+     
         setCar(car :Car){
            this.http
           .post(
@@ -53,6 +58,14 @@ export class carStorage {
           ).subscribe(response =>{console.log(response)})
 
         }
+        getCar(car :Car){
+          this.http
+         .get(
+           "http://localhost:5000/car/addCar", 
+           {headers : new HttpHeaders().append('Content-Type','application/json')}
+         ).subscribe(response =>{console.log(response)})
+
+       }
 
 
 
