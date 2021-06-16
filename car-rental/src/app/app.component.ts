@@ -10,12 +10,12 @@ import {CarsStorageService} from './shared/cars-storage.service';
 })
 export class AppComponent implements OnInit {
   title = 'car-rental';
-  constructor(private carStorage : carStorage, private authService : AuthService){}
+  constructor(private carsStorage : CarsStorageService, private authService : AuthService){}
 
   ngOnInit()
   {
    
-    this.carStorage.fetchCars();
+    this.carsStorage.fetchCars();
   
 
   }

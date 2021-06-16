@@ -17,7 +17,7 @@ import { SigninComponent } from '../signin/signin.component';
   "../../assets/css/lightbox.css"]
 })
 export class HeaderComponent implements OnInit,AfterViewInit {
- 
+
 
   constructor(private dialog: MatDialog ,private AuthService :AuthService , private router : Router ) { }
   
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit,AfterViewInit {
   
   }
 
-  
+   
 
   @ViewChild('stickyMenu') menuElement: ElementRef;
 
@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit,AfterViewInit {
 profile(){
   this.router.navigate(['/profile/profileinformation']);
 }
-logginIn(){
+loggedIn(){
   return !!localStorage.getItem('userData');
 }
 
