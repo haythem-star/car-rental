@@ -10,6 +10,17 @@ export class CarsService {
 
   Cars : Car[] = [];
   carsfilter : Car[]= [];
+  markFilter : string[] = [];
+  mark : boolean = false;
+  available : boolean = false;
+  price : boolean = false;
+  gearbox : boolean = false;
+  seats : boolean = false;
+  availableFilter : string ;
+  priceFilter : string;
+  gearboxFilter : string;
+  seatsFilter : string;
+
 
   getCars()
   {
@@ -44,6 +55,10 @@ export class CarsService {
     }
     this.carsfilter=this.carsfilter.filter(car => car.mark !== mark);
     this.carsChanged.next(this.carsfilter.slice());
+  }
+
+  addMarkToFilter(mark : string){
+
   }
 
   constructor() { }

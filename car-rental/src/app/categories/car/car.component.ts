@@ -60,6 +60,8 @@ export class CarComponent implements OnInit {
         this.rentalService.setPrice(result.price);
         this.router.navigate(['rental',this.index]);
       })
+    }else {
+      this.router.navigate(['signUp']);
     }
     
 
