@@ -3,6 +3,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { RentalServiceService } from 'src/app/services/rental-service.service';
+import { CarsService } from '../../shared/cars.service';
 
 @Component({
   selector: 'app-place-date',
@@ -11,7 +12,7 @@ import { RentalServiceService } from 'src/app/services/rental-service.service';
 })
 export class PlaceDateComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['All Tunisia','Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
+  options: string[] = ['All','Tunis', 'Sousse', 'sfax','Monestir','Mahdia','Jerba'];
   filteredOptions: Observable<string[]>;
 
   campaignOne: FormGroup;
@@ -34,7 +35,8 @@ export class PlaceDateComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  constructor(private rentService : RentalServiceService) {
+  constructor(private rentService : RentalServiceService,
+    private carService : CarsService) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -76,4 +78,9 @@ export class PlaceDateComponent implements OnInit {
 
     
   }
+  placeChange(event)
+{
+  console.log(event);
+  this.carService.addPlaceFilter(event);
+}
 }

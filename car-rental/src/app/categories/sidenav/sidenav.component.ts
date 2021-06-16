@@ -37,16 +37,12 @@ constructor(private carService : CarsService){}
 
 updateAllComplete(index : number) {
   this.task.subtasks[index].completed=!this.task.subtasks[index].completed;
-  if(this.task.subtasks.filter(t => t.completed).length == 0)
+ if (this.task.subtasks[index].completed)
   {
-    this.carService.getCars()
-  }
-  else if (this.task.subtasks[index].completed)
-  {
-    this.carService.setFilterMark(this.task.subtasks[index].name);
+    this.carService.addMarkFilter(this.task.subtasks[index].name);
   }else
   {
-    this.carService.deleteFilterMark(this.task.subtasks[index].name);
+    this.carService.deleteMarkFilter(this.task.subtasks[index].name);
   }
   this.allComplete = (this.task.subtasks != null) && this.task.subtasks.every(t => t.completed);
 }
@@ -63,21 +59,36 @@ setAll(completed: boolean) {
   if (this.task.subtasks == null) {
     return;
   }
+  // this.carService.addAllMarkFilter();
   this.task.subtasks.forEach(t => t.completed = completed);
 }
 
 formatLabel(value: number) {
-  
-  if(value>=1000000)
-  {
-    return Math.round(value / 1000000) + 'M';
-  }
   if (value >= 1000) {
     return Math.round(value / 1000) + 'k';
   }
 
-   
   return value;
+}
+
+
+
+dateFilter(event){
+  this.carService.addAvailabilityFilter(event);
+}
+
+seatFilter(event)
+{
+  this.carService.addseatsFilter(event);
+}
+gearBoxFilter(event){
+  console.log('radio change : '+event);
+  
+  // this.carService.addGearboxFilter(event);
+}
+priceFilter(event)
+{
+  this.carService.addPriceFilter(event);
 }
 
 

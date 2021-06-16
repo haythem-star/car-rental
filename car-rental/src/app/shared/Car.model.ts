@@ -1,6 +1,6 @@
 export class Car {
     public _id: string;
-    public booking : Date[];
+    public booking : [{date_debut : string,date_fin : string}];
     public likes : {nb : number,clients : []}={nb : 0,clients : []};
     constructor(
         public model : string,

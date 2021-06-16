@@ -16,11 +16,11 @@
 <hr>
 
   <label id="example-radio-group-label">Pick your gear box</label>
-<mat-radio-group
+<mat-radio-group 
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
   [color]="'primary'">
-  <mat-radio-button class="example-radio-button" *ngFor="let box of gearBox" [value]="box">
+  <mat-radio-button class="example-radio-button" *ngFor="let box of gearBox" [value]="box" (MatRadioChange)="gearBoxFilter($event)">
     {{box}}
   </mat-radio-button>
 </mat-radio-group>
@@ -28,7 +28,7 @@
 
 <label>Select the marks</label>
 <section class="example-section">
-    <span class="example-list-section">
+    <!-- <span class="example-list-section">
       <mat-checkbox class="example-margin"
                     [checked]="allComplete"
                     [color]="'primary'"
@@ -37,7 +37,7 @@
                     >
         {{task.name}}
       </mat-checkbox>
-    </span>
+    </span> -->
     <span class="example-list-section">
       <ul>
         <li *ngFor="let subtask of task.subtasks,let i=index">
@@ -72,8 +72,8 @@
   [displayWith]="formatLabel"
   tickInterval="1000"
   step="1000"
-  min="100000"
-  max="10000000"
+  min="50000"
+  max="1000000"
   aria-label="units"></mat-slider>
   
   <hr>

@@ -9,17 +9,158 @@ export class CarsService {
   carsChanged = new Subject<Car[]>();
 
   Cars : Car[] = [];
-  carsfilter : Car[]= [];
+  carsfilter : Car[]= this.Cars;
   markFilter : string[] = [];
   mark : boolean = false;
   available : boolean = false;
   price : boolean = false;
   gearbox : boolean = false;
   seats : boolean = false;
+  place : boolean = false;
   availableFilter : string ;
-  priceFilter : string;
+  start : string;
+  priceFilter : number;
   gearboxFilter : string;
-  seatsFilter : string;
+  seatFilter : number;
+  placeFilter : string;
+
+
+  placesFilter(carsTab : Car[])
+  {
+    return carsTab.filter(car => car.city === this.placeFilter)
+  }
+
+  marksFilter(carsTab : Car[]){
+   return carsTab.filter(car => {
+      return this.markFilter.includes(car.mark);
+    })
+  }
+  availablesFilter(carsTab : Car[]){
+    const start_date = new Date(this.start);
+    return carsTab.filter(car => {
+      if(!car.booking[0].date_fin)
+      {
+        return true
+      }
+      let date_reservation = new Date(car.booking[0].date_fin)
+      return start_date.getTime() > date_reservation.getTime();
+    })
+  }
+  pricesFilter(carsTab : Car[])
+  {
+    return carsTab.filter(car => { car.price < this.priceFilter})
+  }
+  seatsFilter(carsTab : Car[]){
+    return carsTab.filter(car => car.seats === this.seatFilter)
+  }
+  gearboxsFilter(carsTab : Car[])
+  {
+    return carsTab.filter(car => car.gearbox === this.gearboxFilter)
+  }
+
+  filter(){
+    this.carsfilter = this.Cars
+    if(this.mark)
+    {
+     this.carsfilter= this.marksFilter(this.carsfilter);
+    }
+    if(this.available){
+      this.carsfilter=this.availablesFilter(this.carsfilter);
+    }
+    if(this.gearbox)
+    {
+      this.carsfilter = this.gearboxsFilter(this.carsfilter);
+    }
+    if(this.price)
+    {
+      this.carsfilter = this.pricesFilter(this.carsfilter);
+    }
+    if(this.seats)
+    {
+      this.carsfilter = this.seatsFilter(this.carsfilter);
+    }
+    if(this.place)
+    {
+      this.carsfilter = this.placesFilter(this.carsfilter);
+    }
+  }
+
+  addMarkFilter(mark : string){
+    this.mark=this.mark || true;
+    this.markFilter.push(mark);
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+    
+  }
+  addAllMarkFilter()
+  {
+    this.mark = false;
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+  deleteMarkFilter(mark : string){
+    const index = this.markFilter.indexOf(mark);
+    if(index !== -1)
+    {
+      this.markFilter.splice(index, 1);
+      this.filter()
+      if(this.markFilter.length === 0){
+        this.mark = false;
+      }
+    }
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+  addseatsFilter(seats : number)
+  {
+    this.seats = this.seats || true;
+    this.seatFilter = seats
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+  addGearboxFilter(gearbox : string)
+  {
+    this.gearbox = this.gearbox || true;
+    this.gearboxFilter = gearbox;
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+  addPriceFilter(price : number)
+  {
+    this.price = this.price || true;
+    this.priceFilter = price;
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+  addPlaceFilter(place : string){
+    if(place === "All")
+    {
+      this.place = false;
+      this.filter();
+    }else {
+      this.place = this.place || true;
+      this.placeFilter = place;
+      this.filter();
+    }
+
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+
+  addAvailabilityFilter(a : string)
+  {
+    this.available = this.available || true;
+    this.availableFilter = a;
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+
+  clearAllFilter()
+  {
+    this.place =this.mark = this.available = this.gearbox =this.seats =this.price= true;
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
+  }
+
+
 
   marques =[{name :'alfa-romeo',imgpath:'assets/img/categories/alfaromeo.png'},
   {name :'audi',imgpath:'assets/img/categories/audi.png'},
@@ -64,7 +205,7 @@ export class CarsService {
 
   getCars()
   {
-    return this.Cars.slice();
+    return this.carsfilter.slice();
   }
 
   addCar(car : Car)
@@ -76,7 +217,8 @@ export class CarsService {
   setCars(cars : Car[])
   {
     this.Cars = cars;
-    this.carsChanged.next(this.Cars.slice());
+    this.filter();
+    this.carsChanged.next(this.carsfilter.slice());
   }
 
   setFilterMark(mark : string)
@@ -95,10 +237,6 @@ export class CarsService {
     }
     this.carsfilter=this.carsfilter.filter(car => car.mark !== mark);
     this.carsChanged.next(this.carsfilter.slice());
-  }
-
-  addMarkToFilter(mark : string){
-
   }
 
   constructor() { }
