@@ -31,7 +31,9 @@ export class AuthService {
     constructor(private http : HttpClient , private router : Router, private dialog : MatDialog){}
 
   
-
+    loggedIn(){
+      return !!localStorage.getItem('userData');
+    }
 // Utiliser pour Guard
     isAdmin() {
     
