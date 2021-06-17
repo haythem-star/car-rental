@@ -33,6 +33,7 @@ export class RentalServiceService {
     if(start.getTime() > end.getTime() || this.end_rental === null)
     {
       this.end_rental = this.start_rental;
+      this.end_rental = this.start_rental;
       end = new Date(this.end_rental);
     }
     this.durations =Math.round((end.getTime()-start.getTime())/(1000*3600*24));
